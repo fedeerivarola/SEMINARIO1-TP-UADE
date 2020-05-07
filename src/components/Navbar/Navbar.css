@@ -1,0 +1,10 @@
+.Navbar {
+    top: 0;
+    width: 100%;
+    height: 56px;
+    position: fixed;
+    background: rgb(243,77,134);
+    background: linear-gradient(90deg, rgba(243,77,134,1) 0%, rgba(181,93,169,1) 100%);
+    box-shadow: 0 2px 3px #ccc;
+
+}

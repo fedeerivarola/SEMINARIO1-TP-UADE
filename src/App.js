@@ -1,21 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react'
+import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom'
 import './App.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Login from './components/Login';
+import Login from './components/Login/Login'
+import Home from './components/Home/Home'
+import Layout from './components/Layout/Layout'
 
-function App() {
-  return (
+class App extends Component {
 
-    <Router>
-      <div>
-        <Switch>
-          <Route path="/login" component={Login} />
-          {/* <Route path="/login" component={Main}/> */}
-        </Switch>
-      </div>
-    </Router>
+  state = {
+    loggedIn: false
+  }
 
-  );
+  loginHandler = () => {
+    this.setState({
+      loggedIn: true
+    })
+  }
+
+  render () {
+    return(
+      <Router>
+          <Route exact path="/home" render={() => <Layout><Home/></Layout>} />
+          <Route exact path="/login" render={() => <Login login={this.loginHandler}/>} />
+          {this.state.loggedIn ? <Redirect to="/home"/> : <Redirect to="/login"/> }
+      </Router>
+    );
+  }
 }
 
 export default App;
