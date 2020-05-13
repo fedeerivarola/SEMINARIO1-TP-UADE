@@ -1,16 +1,20 @@
 import React from 'react'
 import Navbar from '../Navbar/Navbar'
 import './Layout.css'
+import Home from '../Home/Home.js'
 
-const layout = (props) => {
-    return(
-        <div>
-            <Navbar/>
-            <div className="Content">
-                {props.children}
+class Layout extends React.Component {
+
+    render() {
+        return (
+            <div>
+                <Navbar />
+                <div className="Content">
+                    <Home />
+                </div>
             </div>
-        </div>
-    );
+        );
+    }
 }
 
-export default layout;
+export default Layout;

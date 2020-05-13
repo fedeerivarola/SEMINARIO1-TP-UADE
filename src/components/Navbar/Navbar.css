@@ -3,8 +3,60 @@
     width: 100%;
     height: 56px;
     position: fixed;
-    background: rgb(243,77,134);
-    background: linear-gradient(90deg, rgba(243,77,134,1) 0%, rgba(181,93,169,1) 100%);
+    background: rgb(243, 77, 134);
+    background: linear-gradient(90deg, rgba(243, 77, 134, 1) 0%, rgba(181, 93, 169, 1) 100%);
     box-shadow: 0 2px 3px #ccc;
+    display: flex;
+    justify-content: right;
+}
 
+.user {
+    width: 25%;
+    left: 1100px;
+    display: flex;
+    margin-left: 1100px;
+}
+
+.saldo {
+    width: 70px;
+    height: 25px;
+    background: #FFFFFF 0% 0% no-repeat ;
+    border-radius: 6px;
+    opacity: 1;
+    position: relative;
+    top: 15px;
+    right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fontSaldo {
+    font: Regular 18px/24px Open Sans;
+    letter-spacing: 0px;
+    color: #D14C93;
+    opacity: 1;
+    margin: auto;
+    padding-left: 10px;
+}
+
+.Avatar {
+    /* left: 1100px; */
+    width: 35px;
+    height: 37px;
+    top: 10px;
+}
+
+.UserName {
+    /* margin-left: 14rem;
+    left: 1200px;
+    width: 119px;
+    height: 24px; */
+    padding-top: 1rem;
+    padding-left: 1rem;
+    text-align: center;
+    font: Regular 18px/24px Open Sans;
+    letter-spacing: 0px;
+    color: #FFFFFFE6;
+    opacity: 1;
 }
