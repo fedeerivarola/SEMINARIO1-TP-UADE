@@ -4,6 +4,7 @@ import './App.css';
 import Login from './components/Login/Login'
 import Layout from './components/Layout/Layout'
 import Navbar from './components/Navbar/Navbar'
+import CardSaldo from './components/CardSaldo/CardSaldo';
 
 class App extends Component {
 

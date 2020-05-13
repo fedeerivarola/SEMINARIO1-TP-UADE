@@ -15,24 +15,57 @@ class ListHistory extends React.Component {
     }
 
     render() {
+        const historial =[{
+            name:'Lucas',
+            time:'9',
+            desc:'Super Pancho',
+            saldo:70,
+            gasto:1,
+            img:'https://public-v2links.adobecc.com/3d3b2a40-41b6-401c-66aa-accd993e5219/component?params=component_id%3Af210a554-ff9f-47e8-a312-5627da0b9040&params=version%3A0&token=1589464291_da39a3ee_eef990517658b533675b2896e72fa474c0801633&api_key=CometServer1'
+        },
+        {
+            name:'Martina',
+            time:'10',
+            desc:'Sandwich J&Q',
+            saldo:70,
+            gasto:1,
+            img:'https://public-v2links.adobecc.com/3d3b2a40-41b6-401c-66aa-accd993e5219/component?params=component_id%3A4e231c73-e27b-46ef-a86b-2c82991d528c&params=version%3A0&token=1589464291_da39a3ee_eef990517658b533675b2896e72fa474c0801633&api_key=CometServer1'
+        },
+        {
+            name:'Monica',
+            time:'12',
+            desc:'Recarga de saldo',
+            saldo:970,
+            gasto:0,
+            img:'https://public-v2links.adobecc.com/3d3b2a40-41b6-401c-66aa-accd993e5219/component?params=component_id%3A93ddad03-81c5-4394-8e43-fe226f012f51&params=version%3A0&token=1589464291_da39a3ee_eef990517658b533675b2896e72fa474c0801633&api_key=CometServer1'
+        },
+        {
+            name:'Lucas',
+            time:'9',
+            desc:'Yogurt Ligth',
+            saldo:100,
+            gasto:1,
+            img:'https://public-v2links.adobecc.com/3d3b2a40-41b6-401c-66aa-accd993e5219/component?params=component_id%3Af210a554-ff9f-47e8-a312-5627da0b9040&params=version%3A0&token=1589464291_da39a3ee_eef990517658b533675b2896e72fa474c0801633&api_key=CometServer1'
+        }
+    ]
         return (
             <div>
                 <List dense className="ListHistory">
                     <div className="title"><p>Ultimos movimientos</p></div>
-                    {[0, 1, 2, 3].map((value) => {
-                        const labelId = `label-${value}`;
+                    {historial.map((value) => {
+                        const labelId = `label-${value.name}-${value.time}`;
                         return (
                             <ListItem key={value} button className="Registro">
                                 <ListItemAvatar>
                                     <Avatar
                                         alt={`Avatar n°${value + 1}`}
-                                        src={'src\\components\\ListHistory\\boy.png'}
+                                        src={value.img}
                                     />
                                 </ListItemAvatar>
-                                <ListItemText id={'name-' + labelId} primary={`Nombre ${value + 1}`} />
-                                <ListItemText className="ItemTime" id={'time-' + labelId} primary={`Hace ${value + 1} horas`} />
-                                <ListItemText id={'desc-' + labelId} primary={`Descripcion ${value + 1}`} />
-                                <ListItemText id={'saldo-' + labelId} primary={`Saldo ${value + 1}`} />
+                                <ListItemText id={'name-' + labelId} primary={value.name} />
+                                <ListItemText className="ItemTime" id={'time-' + labelId} primary={`Hace ${value.time} horas`} />
+                                <ListItemText id={'desc-' + labelId} primary={value.desc} />
+                                {value.gasto === 0 ? <ListItemText className="saldoPositivo" id={'saldo-' + labelId} primary={`+ $${value.saldo}`} />:  <ListItemText className="saldoNegativo" id={'saldo-' + labelId} primary={`- $${value.saldo}`} />}
                             </ListItem>
                         );
                     })}

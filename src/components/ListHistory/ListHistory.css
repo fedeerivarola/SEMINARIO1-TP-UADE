@@ -21,10 +21,11 @@
     width: 55px;
     height: 28px;
     text-align: left;
-    font: Regular 21px/28px Open Sans;
+    font: Regular 21px/28px Open Sans bold;    
     letter-spacing: 0px;
     color: #000000E6;
     opacity: 1;
+    font-weight: bold;
 }
 
 .item {
@@ -58,6 +59,7 @@
     height: 28px;
     text-align: left;
     font: Regular 21px/28px Open Sans;
+    font-weight:bold;
     letter-spacing: 0px;
     color: #4CB85E;
     opacity: 1;

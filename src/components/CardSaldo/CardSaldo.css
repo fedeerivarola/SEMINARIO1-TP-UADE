@@ -1,0 +1,52 @@
+.CardSaldo {
+    width: 277px;
+    height: 151px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 12px;
+    opacity: 1; 
+    display: flexbox;
+    position: relative;
+    text-align: center;
+    left: 720px;
+    bottom: 720px;
+
+}
+
+.desc{
+    display: flex;
+    width: 277px;
+    height: 151px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 12px;
+    opacity: 1; 
+}
+
+.imgSaldo {
+    position: relative;
+    padding: 1rem;
+    margin: 2rem;
+}
+
+.lblSaldo {
+    text-align: center;
+    font: Regular 15px/20px Open Sans;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1; 
+    margin: auto;
+    margin-right: 12rem;
+
+}
+
+.btnSaldo {
+    height: 50px;
+    width: 200px;
+    padding-left: 1rem;     
+}
+
+.imgBtn{
+    padding-right: 1rem;
+    text-align: center;
+}
