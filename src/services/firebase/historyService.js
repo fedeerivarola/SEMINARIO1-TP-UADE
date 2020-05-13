@@ -1,11 +1,23 @@
 import { db } from './config.js';
 
-export async function getHistorial(data) {
-    return await db
+
+
+export function getHistory(callback) {
+    const unsub = db
         .collection('movimientos')
-        .get().then((querySnapshot) => {
-            querySnapshot.forEach((doc) => {
-                console.log(`${doc.id} => ${doc.data()}`);
+        .onSnapshot((snapshot) => {
+            const docs = [];
+
+            snapshot.forEach((doc) => {
+                const data = doc.data();
+
+                docs.push({
+                    ...data,
+                });
             });
+
+            callback(docs);
         });
+
+    return unsub;
 }
