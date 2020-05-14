@@ -5,6 +5,7 @@ import CardSaldo from '../CardSaldo/CardSaldo';
 
 class Home extends Component {
 
+    //CONS TRUC YOR
     constructor(props) {
         super(props);
         this.state = {
@@ -16,7 +17,7 @@ class Home extends Component {
     render() {
         return (
             <div className="Home">
-                <div>
+                <div> 
                     <ListHistory />
                     <CardSaldo />
                 </div>
