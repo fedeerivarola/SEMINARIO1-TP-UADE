@@ -4,7 +4,7 @@ import { auth } from '../../services/firebase/config.js';
 
 class Login extends React.Component {
 
-    //CONSTRUCTOR
+    //CONSTRUCTORR
     constructor() {
         super(...arguments)
         this.state = {
