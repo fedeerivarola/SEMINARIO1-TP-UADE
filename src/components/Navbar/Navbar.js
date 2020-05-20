@@ -15,14 +15,13 @@ class Navbar extends React.Component {
             console.log('usuario: ' + user.email);
             this.setState({ user });
         });
-
-        getPapa((padre) => {
-            console.log('padre:' + padre.nombre);
-            this.setState({ user: this.state.user, padre: padre })
-
-            console.log("state: " + this.state);
-        })
-
+        
+        getPapa(this.state.user).then(
+            (papa) => {
+                console.log(papa);
+                this.setState({ user: this.state.user, padre: papa })
+            }
+        )
     }
 
     render() {

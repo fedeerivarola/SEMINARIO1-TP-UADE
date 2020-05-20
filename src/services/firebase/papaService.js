@@ -13,9 +13,9 @@ export function getPapa(callback) {
         .get().then((doc) => {
             if(doc.exists){
                 console.log("se encontro: "+doc.data());
-                callback(doc.data());
+                return doc.data();
             } else {
-                console.log("no se encontro : " + doc.data());
+                return null;
             }
         });
     return unsub;
