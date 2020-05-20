@@ -6,8 +6,6 @@ import Modal from '@material-ui/core/Modal';
 import Fade from '@material-ui/core/Fade';
 import Backdrop from '@material-ui/core/Backdrop';
 import { setSaldo, createMovimiento, userChanges, getPapa } from '../../services/firebase';
-import { Link } from 'react-router-dom';
-
 
 
 class CardSaldo extends React.Component {
@@ -56,15 +54,17 @@ class CardSaldo extends React.Component {
     }
 
     submitSaldo = () => {
+
+        const timestamp = Date.now(); // This would be the timestamp you want to format        
+
         let movimiento = {
-            concepto: "Recarga de saldo",
-            padreMail: 'test@test.com',
-            responsable: 'Monica Alvarez',
-            updateSaldo: "+" + this.state.sumarSaldo
+            desc: "Recarga de saldo",
+            mail: 'test@test.com',
+            name: 'Monica Alvarez',
+            saldo: "+" + this.state.sumarSaldo,
+            time: new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(timestamp)
         }
-
-        console.log(this.state);
-
+        
         let nuevoSaldo = {
             mail: this.state.padre.mail,
             nombre: this.state.padre.nombre,

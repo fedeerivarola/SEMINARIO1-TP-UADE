@@ -10,7 +10,9 @@ export async function createMovimiento(data) {
 export function getHistory(callback) {
     const unsub = db
         .collection('movimientos')
-        .onSnapshot((snapshot) => {
+        .where("padreMail", "==", "test@test.com")
+        .get()
+        .then((snapshot) => {
             const docs = [];
 
             snapshot.forEach((doc) => {
