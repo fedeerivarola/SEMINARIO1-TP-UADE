@@ -15,7 +15,7 @@ class Navbar extends React.Component {
             console.log('usuario: ' + user.email);
             this.setState({ user });
         });
-        
+
         getPapa(this.state.user).then(
             (papa) => {
                 console.log(papa);
@@ -30,7 +30,7 @@ class Navbar extends React.Component {
             <div className="Navbar">
                 <div className="user">
                     <div className="saldo">
-                        <p className="fontSaldo">${this.state.padre.saldo}</p>
+                        ${this.state.padre.saldo}
                     </div>
                     <Avatar className="Avatar"
                         src='https://public-v2links.adobecc.com/3d3b2a40-41b6-401c-66aa-accd993e5219/component?params=component_id%3A93ddad03-81c5-4394-8e43-fe226f012f51&params=version%3A0&token=1589411534_da39a3ee_ecfe7df313b21abf4ae4612ff9126683a5c0eb1b&api_key=CometServer1' />

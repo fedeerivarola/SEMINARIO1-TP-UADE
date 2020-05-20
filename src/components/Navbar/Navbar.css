@@ -8,6 +8,7 @@
     box-shadow: 0 2px 3px #ccc;
     display: flex;
     justify-content: right;
+    z-index: 1;
 }
 
 .user {
@@ -29,15 +30,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.fontSaldo {
-    font: Regular 18px/24px Open Sans;
-    letter-spacing: 0px;
     color: #D14C93;
-    opacity: 1;
-    margin: auto;
-    padding-left: 10px;
+    font: Regular 18px/24px Open Sans;
+    
 }
 
 .Avatar {

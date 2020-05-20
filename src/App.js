@@ -3,8 +3,6 @@ import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-d
 import './App.css';
 import Login from './components/Login/Login'
 import Layout from './components/Layout/Layout'
-import Navbar from './components/Navbar/Navbar'
-import CardSaldo from './components/CardSaldo/CardSaldo';
 
 class App extends Component {
 
@@ -23,12 +21,12 @@ class App extends Component {
 
 
       <Router>
-          {/* <Route exact path="/" component={Login} />
+        {/* <Route exact path="/" component={Login} />
           <Route exact path="/home" render={() => <Layout><Home/></Layout>} />
           <Route exact path="/login" render={() => <Login login={this.loginHandler}/>} />
-          {this.state.loggedIn ? <Redirect to="/home"/> : <Redirect to="/login"/> } */}
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/home" component={Layout} />
+          {this.state.loggedIn ? <Redirect to="/home"/> : <Redirect to="/login"/> }*/}
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/home" component={Layout} />
       </Router>
     );
   }
