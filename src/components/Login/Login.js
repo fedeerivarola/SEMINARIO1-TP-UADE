@@ -60,7 +60,7 @@ class Login extends React.Component {
             // [END authwithemail]
         }
 
-        this.props.history.push("/home", this.state);
+        this.props.history.push({pathname:"/home", state:this.state});
 
     };
 

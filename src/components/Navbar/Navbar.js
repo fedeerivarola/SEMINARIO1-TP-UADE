@@ -5,27 +5,33 @@ import { Avatar } from '@material-ui/core';
 
 class Navbar extends React.Component {
 
-    state = {
-        user: {},
-        padre: {},
+    constructor(props) {
+        super(props);
+        this.state = {
+            user: {},
+            padre: {}
+        }
     }
 
     componentDidMount() {
-        userChanges((user) => {
+       userChanges((user) => {
             console.log('usuario: ' + user.email);
             this.setState({ user });
+
+            getPapa(this.state.user.email).then(
+                (papa) => {
+                    console.log("traje " + papa)
+                    this.setState({ padre: papa });
+                }
+            )
+
         });
 
-        getPapa(this.state.user).then(
-            (papa) => {
-                console.log(papa);
-                this.setState({ user: this.state.user, padre: papa })
-            }
-        )
     }
 
     render() {
 
+        console.log(this.props);
         return (
             <div className="Navbar">
                 <div className="user">

@@ -6,11 +6,13 @@ import Home from '../Home/Home.js'
 class Layout extends React.Component {
 
     render() {
+        console.log("layout" + this.state);
+        const { user } = this.props;
         return (
             <div>
-                <Navbar />
+                <Navbar user={user} />
                 <div className="Content">
-                    <Home />
+                    <Home user={user}/>
                 </div>
             </div>
         );
