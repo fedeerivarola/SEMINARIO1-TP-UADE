@@ -5,7 +5,7 @@
     box-shadow: 0px 3px 6px #00000029;
     border-radius: 12px;
     opacity: 1; 
-    display: flexbox;
+    display: flex;
     position: relative;
     text-align: center;
     left: 720px;
@@ -13,37 +13,41 @@
 
 }
 
-.desc{
-    display: flex;
-    width: 277px;
-    height: 151px;
-    background: #FFFFFF 0% 0% no-repeat padding-box;
-    box-shadow: 0px 3px 6px #00000029;
-    border-radius: 12px;
-    opacity: 1; 
-}
-
 .imgSaldo {
-    position: relative;
+    position: absolute;
     padding: 1rem;
-    margin: 2rem;
+    margin: 1rem;
+    /* padding: 1rem;
+    margin: 2rem; */
 }
 
 .lblSaldo {
+    position: absolute;
     text-align: center;
-    font: Regular 15px/20px Open Sans;
+    font: Regular 28px/32px Open Sans bold;
+    font-size: 24px;
     letter-spacing: 0px;
     color: #000000;
     opacity: 1; 
-    margin: auto;
-    margin-right: 12rem;
+    padding: 1rem;
+    left: 110px;
+    top:20px;
+    /* margin: auto;
+    margin-right: 12rem; */
 
 }
 
 .btnSaldo {
-    height: 50px;
-    width: 200px;
-    padding-left: 1rem;     
+    outline:none;
+    border-color: white;
+    border-top-color: gray;
+    height: 40px;
+    width: 100%;
+    padding-left: 1rem;
+    position: absolute;
+    left: 0px;     
+    top: 90px;
+    border-radius:12px;
 }
 
 .imgBtn{
