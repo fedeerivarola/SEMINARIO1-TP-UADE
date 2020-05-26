@@ -1,9 +1,11 @@
 import React from 'react';
 import './Login.css';
 import { auth } from '../../services/firebase/config.js';
+import CreateUser from '../CreateUser/createUser';
 
 class Login extends React.Component {
 
+    
 
     constructor() {
         super(...arguments)
@@ -17,6 +19,8 @@ class Login extends React.Component {
         this.submitHandler = this.submitHandler.bind(this);
     }
 
+    
+
     handleAuth() {
 
         console.log(`currentUser: ${auth.currentUser}`);
@@ -28,7 +32,6 @@ class Login extends React.Component {
 
             var email = this.state.username;
             var password = this.state.password;
-            console.log(`email: ${email}, pass: ${password}`)
             // var email = "test@test.com";
             // var password = "123456";
             if (email.length < 4) {
@@ -41,6 +44,7 @@ class Login extends React.Component {
             }
             // Sign in with email and pass.
             // [START authwithemail]
+
             auth.signInWithEmailAndPassword(email, password)
                 .catch(function (error) {
                     console.log(`error ; ${error}`);
@@ -53,14 +57,15 @@ class Login extends React.Component {
                     } else {
                         alert(errorMessage);
                     }
-                    console.log(error);
+                    //console.log(error);
                     alert("No work");
                     // [END_EXCLUDE]
                 });
+            this.props.history.push({pathname: "/home", state:this.state});
             // [END authwithemail]
         }
 
-        this.props.history.push({pathname:"/home", state:this.state});
+        
 
     };
 
@@ -80,6 +85,10 @@ class Login extends React.Component {
         this.handleAuth();
     }
 
+    registrarse = () => {
+        this.props.history.push({pathname: "/registrarse", state:this.state});
+    }
+
     render() {
         return (
             <div className="Background">
@@ -92,14 +101,7 @@ class Login extends React.Component {
                             <p>Contraseña</p>
                             <input type="password" onChange={(event) => this.passInputHandler(event)} />
                             <button onClick={this.submitHandler}>INGRESAR</button>
-                            <div className="CreateAccountContainer">
-                                <div className="CreateAccount">
-                                    <p>No tienes cuenta?</p>
-                                    <p>Click aqui</p>
-                                </div>
-
-                            </div>
-
+                            <button onClick={this.registrarse}>No tienes cuenta?</button>
                         </form>
                     </div>
                 </div>
