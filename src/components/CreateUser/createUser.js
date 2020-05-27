@@ -31,8 +31,8 @@ class createUser extends React.Component {
 
     handleAuth() {
         //registro de contacto
-        var email = this.username;
-        var password = this.password;
+        var email = this.state.username;
+        var password = this.state.password;
         if (email.length < 4) {
             alert('Please enter an email address.');
             return;
@@ -43,10 +43,16 @@ class createUser extends React.Component {
         }
         // Sign in with email and pass.
         // [START createwithemail]
+        var errorCode = 'OK';
+        var errorMessage = 'OK';
+        auth.createUserWithEmailAndPassword(email, password).then(
+            this.props.history.push({pathname: "/login", state:this.state})
+        );
+
         auth.createUserWithEmailAndPassword(email, password).catch(function (error) {
             // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
+            errorCode = error.code;
+            errorMessage = error.message;
             // [START_EXCLUDE]
             if (errorCode == 'auth/weak-password') {
                 alert('The password is too weak.');
@@ -57,7 +63,15 @@ class createUser extends React.Component {
             // [END_EXCLUDE]
         });
         // [END createwithemail]
-        this.props.history.push({pathname: "/login", state:this.state});
+        //alert(email + '  '+password);
+
+        /*alert(errorCode + ' --- '+ errorMessage);
+        if (errorCode != 'OK' && errorMessage != 'OK') {
+            return;
+        } else {
+            
+        }*/
+        
     }
 
     submitHandler = () => {
