@@ -1,7 +1,7 @@
 import React from 'react';
 import './Login.css';
 import { auth } from '../../services/firebase/config.js';
-import CreateUser from '../CreateUser/createUser';
+import fooies from './fooies.png';
 
 class Login extends React.Component {
 
@@ -92,8 +92,11 @@ class Login extends React.Component {
     render() {
         return (
             <div className="Background">
+                
                 <div className="LoginCard">
-                    <div className="CardHeader" />
+                    <div className="CardHeader">
+                        <img src={fooies}  alt="Logo" width="400" height="100"/>     
+                    </div>
                     <div className="CardContent">
                         <form className="LoginForm">
                             <p>Usuario</p>
