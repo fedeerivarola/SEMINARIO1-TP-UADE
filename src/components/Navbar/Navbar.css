@@ -1,21 +1,32 @@
 .Navbar {
+    display: flex;
+    position: fixed;
     top: 0;
     width: 100%;
     height: 56px;
-    position: fixed;
-    background: rgb(243, 77, 134);
-    background: linear-gradient(90deg, rgba(243, 77, 134, 1) 0%, rgba(181, 93, 169, 1) 100%);
+    background: rgb(38,168,128);
+    background: linear-gradient(90deg, rgba(38,168,128,1) 0%, rgba(129,175,83,1) 100%);
     box-shadow: 0 2px 3px #ccc;
-    display: flex;
-    justify-content: right;
     z-index: 1;
+    justify-content: space-between;
+    
 }
 
 .user {
-    width: 25%;
-    left: 1100px;
     display: flex;
-    margin-left: 1100px;
+    margin-right: 3rem;
+}
+
+
+.Logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 3rem;
+}
+.Logo img{ 
+    height: 90%;
+    
 }
 
 .saldo {
@@ -30,7 +41,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #D14C93;
+    color: #40AF62;
     font: Regular 18px/24px Open Sans;
     
 }
