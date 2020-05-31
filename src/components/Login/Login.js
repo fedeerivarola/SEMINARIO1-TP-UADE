@@ -61,7 +61,7 @@ class Login extends React.Component {
                     alert("No work");
                     // [END_EXCLUDE]
                 });
-            this.props.history.push({pathname: "/home", state:this.state});
+            this.props.history.push({pathname: "/home"});
             // [END authwithemail]
         }
 
@@ -87,6 +87,7 @@ class Login extends React.Component {
 
     registrarse = () => {
         this.props.history.push({pathname: "/registrarse", state:this.state});
+        
     }
 
     render() {

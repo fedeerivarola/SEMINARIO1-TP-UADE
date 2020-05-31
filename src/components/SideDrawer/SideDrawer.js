@@ -1,6 +1,6 @@
 import React from 'react'
 import './SideDrawer.css'
-import Link from 'react-router-dom'
+import { Route, Link } from 'react-router-dom'
 
 //Imagenes
 import resumenLogo from '../../assets/sd-resumen.png';
@@ -13,26 +13,26 @@ const sideDrawer = props => {
     return(
         <div className="SideDrawer">
             <div className="List">
-                <a active href="/home">
-                    <img src={resumenLogo} alt=""></img>
-                    Resumen
-                </a>
-                <a href="/home">
+                <Link to="/home">
+                        <img src={resumenLogo} alt=""></img>
+                        Resumen
+                </Link>
+                <Link to="/saldo">
                     <img src={saldoLogo} alt=""></img>
                     Saldo
-                </a>
-                <a href="/home">
+                </Link>
+                <Link to="/movimientos">
                     <img src={movimientosLogo} alt=""></img>
                     Movimientos
-                </a>
-                <a href="/home">
+                </Link>
+                <Link to="/niños">
                     <img src={niñosLogo} alt=""></img>
                     Niños
-                </a>
-                <a href="/home">
+                </Link>
+                <Link to="/comercios">
                     <img src={comercioLogo} alt=""></img>
                     Comercios
-                </a>
+                </Link>
             </div>
         </div>
     );
