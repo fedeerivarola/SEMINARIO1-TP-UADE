@@ -39,8 +39,8 @@ class Navbar extends React.Component {
                 <div className="Logo">
                     <img src={Logo}  alt="Logo"/>
                 </div>
-                <div className="user">
-                    <div className="saldo">
+                <div className="User">
+                    <div className="Saldo">
                         ${this.state.padre.saldo}
                     </div>
                     <Avatar className="Avatar"

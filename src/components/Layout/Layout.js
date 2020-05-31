@@ -1,7 +1,8 @@
 import React from 'react'
 import Navbar from '../Navbar/Navbar'
 import './Layout.css'
-import Home from '../Home/Home.js'
+import Home from '../Home/Home'
+import SideDrawer from '../SideDrawer/SideDrawer'
 
 class Layout extends React.Component {
 
@@ -11,6 +12,7 @@ class Layout extends React.Component {
         return (
             <div>
                 <Navbar user={user} />
+                <SideDrawer/>
                 <div className="Content">
                     <Home user={user}/>
                 </div>

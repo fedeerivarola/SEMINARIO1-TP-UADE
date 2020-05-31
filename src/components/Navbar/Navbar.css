@@ -7,34 +7,33 @@
     background: rgb(38,168,128);
     background: linear-gradient(90deg, rgba(38,168,128,1) 0%, rgba(129,175,83,1) 100%);
     box-shadow: 0 2px 3px #ccc;
-    z-index: 1;
+    z-index: 8;
     justify-content: space-between;
     
 }
 
-.user {
+.User {
     display: flex;
     margin-right: 3rem;
+    width: max-content;
 }
 
 
 .Logo{
     display: flex;
+    width: 15rem;
     justify-content: center;
     align-items: center;
-    margin-left: 3rem;
 }
 .Logo img{ 
-    height: 90%;
-    
+    height: 80%;
 }
 
-.saldo {
+.Saldo {
     width: 70px;
     height: 25px;
     background: #FFFFFF 0% 0% no-repeat ;
     border-radius: 6px;
-    opacity: 1;
     position: relative;
     top: 15px;
     right: 20px;
@@ -43,7 +42,6 @@
     align-items: center;
     color: #40AF62;
     font: Regular 18px/24px Open Sans;
-    
 }
 
 .Avatar {

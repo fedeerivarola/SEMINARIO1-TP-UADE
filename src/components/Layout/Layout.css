@@ -5,4 +5,5 @@
     box-sizing: border-box;
     padding: 56px;
     min-height: calc(100vh - 56px);
+    background-color: #FBFBFB;
 }
