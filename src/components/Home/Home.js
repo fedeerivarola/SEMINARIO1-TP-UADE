@@ -16,11 +16,14 @@ class Home extends Component {
 
     render() {
         return (
-            <div className="Home">
-                <div> 
+            <div className="Home"> 
+                <div className="Column">
                     <ListHistory />
+                </div>
+                <div className="Column">
                     <CardSaldo />
                 </div>
+                
             </div>
         );
     }

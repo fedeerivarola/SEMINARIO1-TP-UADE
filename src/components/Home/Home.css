@@ -3,6 +3,14 @@
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    padding: 56px;
-    min-height: calc(100vh - 56px);
+    height: 100%;
+    width: 100%;
+   
+}
+
+.Home .Column{
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    margin: 1rem;
 }

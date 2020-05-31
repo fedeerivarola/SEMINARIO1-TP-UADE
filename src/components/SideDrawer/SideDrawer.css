@@ -32,14 +32,15 @@ a{
     height: 3rem;
     margin-bottom: 1.5rem;
     text-decoration: none;
+    font-weight: bold;
 }
 
 a:hover{
     color: #40AF62;
     border-right: 7px solid #40AF62;
+    transition: ease-in-out 150ms;
 
 }
 a:active{
     border-right: 7px solid #40AF62;
-
 }
