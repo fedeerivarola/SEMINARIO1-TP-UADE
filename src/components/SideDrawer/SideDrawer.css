@@ -22,7 +22,7 @@
 
 
 a{
-    padding-left: 5.5rem;
+    padding-left: 2rem;
     width: 100%;
     box-sizing: border-box;
     display: flex;
@@ -35,10 +35,16 @@ a{
     font-weight: bold;
 }
 
+.List img{
+    margin-right:1.5rem;
+    max-width: 2.8rem;
+    max-height: 2.8rem;
+}
+
 a:hover{
     color: #40AF62;
     border-right: 7px solid #40AF62;
-    transition: ease-in-out 150ms;
+    transition: ease-in-out 100ms;
 
 }
 a:active{
