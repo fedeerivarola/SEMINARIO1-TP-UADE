@@ -5,7 +5,6 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
-import { getHistory } from '../../services/firebase';
 import boy from './boy.png';
 import monip from './monip.png';
 
@@ -17,9 +16,9 @@ class ListHistory extends React.Component {
     }
 
     componentDidMount() {
-        getHistory((history) => {
-            this.setState({ history });
-        });
+        // getHistory((history) => {
+        //     this.setState({ history });
+        // });
     }
 
     render() {

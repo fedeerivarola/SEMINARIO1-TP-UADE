@@ -5,7 +5,7 @@ import CashVector from './CashVector.svg'
 import Modal from '@material-ui/core/Modal';
 import Fade from '@material-ui/core/Fade';
 import Backdrop from '@material-ui/core/Backdrop';
-import { setSaldo, createMovimiento, userChanges, getPapa } from '../../services/firebase';
+
 
 
 class CardSaldo extends React.Component {
@@ -27,17 +27,17 @@ class CardSaldo extends React.Component {
 
     
     componentDidMount() {
-        userChanges((user) => {
-             console.log('usuario: ' + user.email);
-             this.setState({ user });
+        // userChanges((user) => {
+        //      console.log('usuario: ' + user.email);
+        //      this.setState({ user });
  
-             getPapa(this.state.user.email).then(
-                 (padre) => {
-                     this.setState({ padre: padre });
-                 }
-             )
+        //      getPapa(this.state.user.email).then(
+        //          (padre) => {
+        //              this.setState({ padre: padre });
+        //          }
+        //      )
  
-         });
+        //  });
  
      }
 
@@ -71,33 +71,11 @@ class CardSaldo extends React.Component {
             saldo: parseInt(this.state.padre.saldo) + parseInt(this.state.sumarSaldo)
         }
 
-        createMovimiento(movimiento)
-        setSaldo(nuevoSaldo);
+        // createMovimiento(movimiento)
+        // setSaldo(nuevoSaldo);
         this.setState({ openModal: false });
         this.setState({isUpdated: true})
     }
-
-    createMovimiento = async (data) => {
-        try {
-            await createMovimiento({
-                ...data,
-            });
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
-    setSaldo = async (data) => {
-        try {
-            console.log(data)
-            await setSaldo({
-                ...data,
-            });
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
 
     render() {
 

@@ -1,6 +1,6 @@
 import firebase from 'firebase';
 
-const config = {
+export const config = {
     apiKey: "AIzaSyA1s4mWBEUL-P7lLccedYn5X1ymcnq927U",
     authDomain: "seminario-tp.firebaseapp.com",
     databaseURL: "https://seminario-tp.firebaseio.com",
@@ -10,8 +10,9 @@ const config = {
     appId: "1:865969260541:web:72c9aabfb720cedc5afb94"
 };
 
-firebase.initializeApp(config);
+firebase.initializeApp(config)
 
-export const auth = firebase.auth();
-export const db = firebase.firestore();
-
+export const ref = firebase.database().ref()
+export const firebaseAuth = firebase.auth
+export const db = firebase.firestore()
+export const dbPadres = db.collection("padres");

@@ -1,39 +1,43 @@
 import React from 'react';
 import './Navbar.css';
-import { userChanges, getPapa } from '../../services/firebase';
 import { Avatar } from '@material-ui/core';
 import moni from './moni.png';
+import { logout } from '../../helpers/auth'
+import { dbPadres } from '../../services/firebase'
 
 class Navbar extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            user: {},
+            loading: true,
+            user: props.user,
             padre: {}
         }
     }
 
-    componentDidMount() {
-       userChanges((user) => {
-            console.log('usuario: ' + user.email);
-            this.setState({ user });
+    componentWillMount() {
 
-            getPapa(this.state.user.email).then(
-                (papa) => {
-                    console.log("traje " + papa)
-                    this.setState({ padre: papa });
-                }
-            )
-
+        let docRef = dbPadres.doc(this.state.user.userEmail);
+        docRef.get().then((doc) => {
+            if (doc.exists) {
+                this.setState({ padre: doc.data(), loading: false });
+            } else {
+                docRef.set({
+                    mail: this.state.user.userEmail
+                });
+                this.setState({ padre: { mail: this.state.user.userEmail, nombre: 'none', saldo: 0 }, loading: false });
+            }
+        }).catch((error) => {
+            console.log(`ocurrio error: ${error}`);
         });
 
+        console.log(this.state);
     }
 
-    render() {
 
-        console.log(this.props);
-        return (
+    render() {
+        return this.state.loading === true ? <h1>Loading</h1> : (
             <div className="Navbar">
                 <div className="user">
                     <div className="saldo">
@@ -42,7 +46,14 @@ class Navbar extends React.Component {
                     <Avatar className="Avatar"
                         src={moni} />
                     <div className="UserName">{this.state.padre.nombre}</div>
+                    <button
+                        style={{ border: 'none', background: 'transparent', color: 'white' }}
+                        onClick={() => {
+                            logout()
+                        }}
+                        className="navbar-brand">Cerrar Sesion</button>
                 </div>
+
             </div>
         );
     }

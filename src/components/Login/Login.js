@@ -1,73 +1,31 @@
 import React from 'react';
 import './Login.css';
-import { auth } from '../../services/firebase/config.js';
 import fooies from './fooies.png';
+import { login } from '../../helpers/auth'
 
 class Login extends React.Component {
 
-    
+    constructor(props) {
 
-    constructor() {
-        super(...arguments)
+        super(props)
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            loginMessage: null
         };
 
         this.userInputHandler = this.userInputHandler.bind(this);
         this.passInputHandler = this.passInputHandler.bind(this);
-        this.submitHandler = this.submitHandler.bind(this);
+        this.handleAuth = this.handleAuth.bind(this);
     }
 
-    
-
-    handleAuth() {
-
-        console.log(`currentUser: ${auth.currentUser}`);
-        if (auth.currentUser) {
-            // [START signout]
-            auth.signOut();
-            // [END signout]
-        } else {
-
-            var email = this.state.username;
-            var password = this.state.password;
-            // var email = "test@test.com";
-            // var password = "123456";
-            if (email.length < 4) {
-                alert('Please enter an email address.');
-                return;
-            }
-            if (password.length < 4) {
-                alert('Please enter a password.');
-                return;
-            }
-            // Sign in with email and pass.
-            // [START authwithemail]
-
-            auth.signInWithEmailAndPassword(email, password)
-                .catch(function (error) {
-                    console.log(`error ; ${error}`);
-                    // Handle Errors here.
-                    var errorCode = error.code;
-                    var errorMessage = error.message;
-                    // [START_EXCLUDE]
-                    if (errorCode === 'auth/wrong-password') {
-                        alert('Wrong password.');
-                    } else {
-                        alert(errorMessage);
-                    }
-                    //console.log(error);
-                    alert("No work");
-                    // [END_EXCLUDE]
-                });
-            this.props.history.push({pathname: "/home", state:this.state});
-            // [END authwithemail]
-        }
-
-        
-
-    };
+    handleAuth = (e) => {
+        e.preventDefault()
+        login(this.state.username, this.state.password)
+            .catch((error) => {
+                this.setState({ loginMessage: 'Invalid username/password.' });
+            })
+    }
 
     userInputHandler = (e) => {
         this.setState({
@@ -81,29 +39,32 @@ class Login extends React.Component {
         });
     }
 
-    submitHandler = () => {
-        this.handleAuth();
-    }
-
     registrarse = () => {
-        this.props.history.push({pathname: "/registrarse", state:this.state});
+        this.props.history.push({ pathname: "/registrarse", state: this.state });
     }
 
     render() {
         return (
             <div className="Background">
-                
+
                 <div className="LoginCard">
                     <div className="CardHeader">
-                        <img src={fooies}  alt="Logo" width="400" height="100"/>     
+                        <img src={fooies} alt="Logo" width="400" height="100" />
                     </div>
                     <div className="CardContent">
-                        <form className="LoginForm">
+                        <form className="LoginForm" onSubmit={this.handleAuth}>
                             <p>Usuario</p>
                             <input onChange={(event) => this.userInputHandler(event)} />
                             <p>Contraseña</p>
                             <input type="password" onChange={(event) => this.passInputHandler(event)} />
-                            <button onClick={this.submitHandler}>INGRESAR</button>
+
+                            {
+                                this.state.loginMessage &&
+                                <div className="alert alert-danger" role="alert">
+                                    <span style={{ color: "red" }}>Error:{this.state.loginMessage}</span>
+                                </div>
+                            }
+                            <button type="submit">INGRESAR</button>
                             <button onClick={this.registrarse}>No tienes cuenta?</button>
                         </form>
                     </div>

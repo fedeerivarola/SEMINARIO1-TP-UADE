@@ -1,6 +1,6 @@
 import React from 'react';
 import './createUser.css';
-import { auth } from '../../services/firebase/config.js';
+
 
 class createUser extends React.Component {
 
@@ -31,37 +31,37 @@ class createUser extends React.Component {
 
     handleAuth() {
         //registro de contacto
-        var email = this.state.username;
-        var password = this.state.password;
-        if (email.length < 4) {
-            alert('Please enter an email address.');
-            return;
-        }
-        if (password.length < 4) {
-            alert('Please enter a password.');
-            return;
-        }
-        // Sign in with email and pass.
-        // [START createwithemail]
-        var errorCode = 'OK';
-        var errorMessage = 'OK';
-        auth.createUserWithEmailAndPassword(email, password).then(
-            this.props.history.push({pathname: "/login", state:this.state})
-        );
+        // var email = this.state.username;
+        // var password = this.state.password;
+        // if (email.length < 4) {
+        //     alert('Please enter an email address.');
+        //     return;
+        // }
+        // if (password.length < 4) {
+        //     alert('Please enter a password.');
+        //     return;
+        // }
+        // // Sign in with email and pass.
+        // // [START createwithemail]
+        // var errorCode = 'OK';
+        // var errorMessage = 'OK';
+        // auth.createUserWithEmailAndPassword(email, password).then(
+        //     this.props.history.push({pathname: "/login", state:this.state})
+        // );
 
-        auth.createUserWithEmailAndPassword(email, password).catch(function (error) {
-            // Handle Errors here.
-            errorCode = error.code;
-            errorMessage = error.message;
-            // [START_EXCLUDE]
-            if (errorCode == 'auth/weak-password') {
-                alert('The password is too weak.');
-            } else {
-                alert(errorMessage);
-            }
-            console.log(error);
-            // [END_EXCLUDE]
-        });
+        // auth.createUserWithEmailAndPassword(email, password).catch(function (error) {
+        //     // Handle Errors here.
+        //     errorCode = error.code;
+        //     errorMessage = error.message;
+        //     // [START_EXCLUDE]
+        //     if (errorCode == 'auth/weak-password') {
+        //         alert('The password is too weak.');
+        //     } else {
+        //         alert(errorMessage);
+        //     }
+        //     console.log(error);
+        //     // [END_EXCLUDE]
+        // });
         // [END createwithemail]
         //alert(email + '  '+password);
 
