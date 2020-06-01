@@ -13,7 +13,9 @@
     width: 586px;
     height: 89px;
     opacity: 1;
-}
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+ }
 
 .nombreHijo {
     top: 199px;
@@ -78,10 +80,21 @@ p {
     opacity: 1;
 }
 
+.select1 {
+    position: absolute;
+    width: 229px;
+    height: 20px;
+}
+
 .title {
     padding-left: 26px;
     padding-top: 26px;
 }
+
+.inner {
+    overflow: hidden;
+    width: 2000px;
+  }
 
 .ItemTime {
     text-align: left;
@@ -89,4 +102,9 @@ p {
     letter-spacing: 0px;
     color: #A4A4A4;
     opacity: 1;
+}
+
+.unido{
+    display: flex;
+    position: relative;
 }

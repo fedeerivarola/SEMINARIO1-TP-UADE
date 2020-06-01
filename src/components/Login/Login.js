@@ -92,7 +92,6 @@ class Login extends React.Component {
     render() {
         return (
             <div className="Background">
-                
                 <div className="LoginCard">
                     <div className="CardHeader">
                         <img src={fooies}  alt="Logo" width="400" height="100"/>     
