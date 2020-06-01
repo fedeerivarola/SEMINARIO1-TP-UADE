@@ -5,12 +5,6 @@ import App from './App';
 
 
 ReactDOM.render(
-<<<<<<< HEAD
       <App />,
-=======
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
->>>>>>> master
   document.getElementById('root')
 );
