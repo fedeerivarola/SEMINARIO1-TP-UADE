@@ -1,5 +1,6 @@
 import React from 'react';
 import './createUser.css';
+import { auth } from '../../helpers/auth'
 
 
 class createUser extends React.Component {
@@ -8,7 +9,8 @@ class createUser extends React.Component {
         super(...arguments)
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            signupMessage: null
         };
 
         this.userInputHandler = this.userInputHandler.bind(this);
@@ -29,53 +31,12 @@ class createUser extends React.Component {
         });
     }
 
-    handleAuth() {
-        //registro de contacto
-        // var email = this.state.username;
-        // var password = this.state.password;
-        // if (email.length < 4) {
-        //     alert('Please enter an email address.');
-        //     return;
-        // }
-        // if (password.length < 4) {
-        //     alert('Please enter a password.');
-        //     return;
-        // }
-        // // Sign in with email and pass.
-        // // [START createwithemail]
-        // var errorCode = 'OK';
-        // var errorMessage = 'OK';
-        // auth.createUserWithEmailAndPassword(email, password).then(
-        //     this.props.history.push({pathname: "/login", state:this.state})
-        // );
-
-        // auth.createUserWithEmailAndPassword(email, password).catch(function (error) {
-        //     // Handle Errors here.
-        //     errorCode = error.code;
-        //     errorMessage = error.message;
-        //     // [START_EXCLUDE]
-        //     if (errorCode == 'auth/weak-password') {
-        //         alert('The password is too weak.');
-        //     } else {
-        //         alert(errorMessage);
-        //     }
-        //     console.log(error);
-        //     // [END_EXCLUDE]
-        // });
-        // [END createwithemail]
-        //alert(email + '  '+password);
-
-        /*alert(errorCode + ' --- '+ errorMessage);
-        if (errorCode != 'OK' && errorMessage != 'OK') {
-            return;
-        } else {
-            
-        }*/
-        
-    }
-
-    submitHandler = () => {
-        this.handleAuth();
+    submitHandler = (e) => {
+        e.preventDefault()
+        auth(this.state.username, this.state.password)
+            .catch((error) => {
+                this.setState({ signupMessage: error.message });
+            });
     }
 
     render() {
@@ -84,12 +45,18 @@ class createUser extends React.Component {
                 <div className="CreateUser">
                     <div className="CardHeader" />
                     <div className="CardContent">
-                        <form className="CreateForm">
+                        <form className="CreateForm" onSubmit={this.submitHandler}>
                             <p>Email</p>
                             <input onChange={(event) => this.userInputHandler(event)} />
                             <p>Contraseña</p>
                             <input type="password" onChange={(event) => this.passInputHandler(event)} />
-                            <button onClick={this.submitHandler}>REGISTRARSE</button>
+                            {
+                                this.state.loginMessage &&
+                                <div className="alert alert-danger" role="alert">
+                                    <span style={{ color: "red" }}>Error:{this.state.signupMessage}</span>
+                                </div>
+                            }
+                            <button type="submit">REGISTRARSE</button>
                         </form>
                     </div>
                 </div>
