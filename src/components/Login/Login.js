@@ -1,7 +1,7 @@
 import React from 'react';
 import './Login.css';
 import { auth } from '../../services/firebase/config.js';
-import fooies from './fooies.png';
+import Logo from '../../assets/logo.png';
 
 class Login extends React.Component {
 
@@ -61,7 +61,7 @@ class Login extends React.Component {
                     alert("No work");
                     // [END_EXCLUDE]
                 });
-            this.props.history.push({pathname: "/home", state:this.state});
+            this.props.history.push({pathname: "/home"});
             // [END authwithemail]
         }
 
@@ -87,6 +87,7 @@ class Login extends React.Component {
 
     registrarse = () => {
         this.props.history.push({pathname: "/registrarse", state:this.state});
+        
     }
 
     render() {
@@ -94,7 +95,7 @@ class Login extends React.Component {
             <div className="Background">
                 <div className="LoginCard">
                     <div className="CardHeader">
-                        <img src={fooies}  alt="Logo" width="400" height="100"/>     
+                        <img src={Logo}  alt="Logo"/>     
                     </div>
                     <div className="CardContent">
                         <form className="LoginForm">

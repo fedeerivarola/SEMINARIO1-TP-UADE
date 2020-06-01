@@ -1,10 +1,11 @@
 .ListHistory {
-    width: 671px;
-    height: 714px;
+    width: 40rem;
+    height: 40rem;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     box-shadow: 0px 3px 6px #00000029;
     border-radius: 12px;
     opacity: 1;
+    
 }
 
 .Registro {

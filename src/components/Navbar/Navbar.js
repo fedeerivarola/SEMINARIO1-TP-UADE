@@ -3,6 +3,7 @@ import './Navbar.css';
 import { userChanges, getPapa } from '../../services/firebase';
 import { Avatar } from '@material-ui/core';
 import moni from './moni.png';
+import Logo from '../../assets/logo.png';
 
 class Navbar extends React.Component {
 
@@ -35,8 +36,11 @@ class Navbar extends React.Component {
         console.log(this.props);
         return (
             <div className="Navbar">
-                <div className="user">
-                    <div className="saldo">
+                <div className="Logo">
+                    <img src={Logo}  alt="Logo"/>
+                </div>
+                <div className="User">
+                    <div className="Saldo">
                         ${this.state.padre.saldo}
                     </div>
                     <Avatar className="Avatar"

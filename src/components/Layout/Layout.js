@@ -1,7 +1,9 @@
 import React from 'react'
-import Navbar from '../Navbar/Navbar'
 import './Layout.css'
-import Home from '../Home/Home.js'
+import Navbar from '../Navbar/Navbar'
+import Home from '../Home/Home'
+import SideDrawer from '../SideDrawer/SideDrawer'
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
 
 class Layout extends React.Component {
 
@@ -9,12 +11,21 @@ class Layout extends React.Component {
         console.log("layout" + this.state);
         const { user } = this.props;
         return (
-            <div>
-                <Navbar user={user} />
-                <div className="Content">
-                    <Home user={user}/>
+            <Router>
+                <div>
+                    <Navbar user={user} />
+                    <SideDrawer/>
+                    <div className="Content">
+                        {/* <Route exact path="/home" render={() => <Home user={user}/>} />
+                        <Route exact path="/saldo" render={() => <h1>Saldos</h1>}/>
+                        <Route exact path="/movimientos" render={() => <h1>Movimientos</h1>} />
+                        <Route exact path="/niños" render={() => <h1>Niños</h1>} />
+                        <Route exact path="/comercios" render={() => <h1>Comercios</h1>} /> */}
+
+                        <Home user={user}/>
+                    </div>
                 </div>
-            </div>
+            </Router>
         );
     }
 }
