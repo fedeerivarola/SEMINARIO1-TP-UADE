@@ -13,12 +13,9 @@
 }
 
 .CardHeader {
-    background: rgb(243,77,134);
-    background: linear-gradient(90deg, rgba(243,77,134,1) 0%, rgba(181,93,169,1) 100%);
     height: 7rem;
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
-
 }
 
 

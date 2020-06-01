@@ -56,6 +56,7 @@ class App extends Component {
   }
 
   render() {
+<<<<<<< HEAD
     console.log(this.state)
 
     return this.state.loading === true ? <h1>Loading</h1> : (
@@ -66,6 +67,18 @@ class App extends Component {
         <PublicRoute authed={this.state.authed} path='/login' component={Login} />
         <PublicRoute authed={this.state.authed} path='/register' component={CreateUser} />
         <PrivateRoute authed={this.state.authed} path='/home' component={Layout}/>
+=======
+    return (
+      <Router>
+        {/* {this.state.loggedIn ? <Redirect to="/home"/> : <Redirect to="/login"/>}
+        <Route exact path="/home" component={Layout} /> 
+        <Route exact path="/login" component={Login} /> 
+        <Route exact path="/registrarse" component={CreateUser} /> */}
+
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/home" component={Layout} />
+        <Route exact path="/registrarse" component={CreateUser} />
+>>>>>>> master
       </Router>
     );
   }

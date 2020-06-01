@@ -1,0 +1,52 @@
+.SideDrawer{
+    display: flex;
+    position: fixed;
+    top: 56px;
+    width: 15rem;
+    height: 100%;
+    box-shadow: 0 2px 6px #ccc;
+    z-index: 9;
+    background-color: white;
+    justify-content: center
+
+}
+
+.List{
+    width: 100%;
+    list-style-type: none;
+    margin-top: 2rem;
+    
+}
+
+
+
+
+a{
+    padding-left: 2rem;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    color: black;
+    cursor: pointer;
+    height: 3rem;
+    margin-bottom: 1.5rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.List img{
+    margin-right:1.5rem;
+    max-width: 2.8rem;
+    max-height: 2.8rem;
+}
+
+a:hover{
+    color: #40AF62;
+    border-right: 7px solid #40AF62;
+    transition: ease-in-out 100ms;
+
+}
+a:active{
+    border-right: 7px solid #40AF62;
+}

@@ -4,6 +4,7 @@ import { Avatar } from '@material-ui/core';
 import moni from './moni.png';
 import { logout } from '../../helpers/auth'
 import { dbPadres } from '../../services/firebase'
+import Logo from '../../assets/logo.png';
 
 class Navbar extends React.Component {
 
@@ -40,7 +41,7 @@ class Navbar extends React.Component {
         return this.state.loading === true ? <h1>Loading</h1> : (
             <div className="Navbar">
                 <div className="Logo">
-                    <img src={Logo} alt="Logo" />
+                    <img src={Logo}  alt="Logo"/>
                 </div>
                 <div className="User">
                     <div className="Saldo">

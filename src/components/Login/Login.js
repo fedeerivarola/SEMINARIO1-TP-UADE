@@ -1,6 +1,6 @@
 import React from 'react';
 import './Login.css';
-import fooies from './fooies.png';
+import Logo from '../../assets/logo.png';
 import { login } from '../../helpers/auth'
 
 class Login extends React.Component {
@@ -46,10 +46,9 @@ class Login extends React.Component {
     render() {
         return (
             <div className="Background">
-
                 <div className="LoginCard">
                     <div className="CardHeader">
-                        <img src={fooies} alt="Logo" width="400" height="100" />
+                        <img src={Logo}  alt="Logo"/>     
                     </div>
                     <div className="CardContent">
                         <form className="LoginForm" onSubmit={this.handleAuth}>
