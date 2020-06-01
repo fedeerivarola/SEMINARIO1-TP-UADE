@@ -39,8 +39,11 @@ class Navbar extends React.Component {
     render() {
         return this.state.loading === true ? <h1>Loading</h1> : (
             <div className="Navbar">
-                <div className="user">
-                    <div className="saldo">
+                <div className="Logo">
+                    <img src={Logo} alt="Logo" />
+                </div>
+                <div className="User">
+                    <div className="Saldo">
                         ${this.state.padre.saldo}
                     </div>
                     <Avatar className="Avatar"
@@ -53,7 +56,6 @@ class Navbar extends React.Component {
                         }}
                         className="navbar-brand">Cerrar Sesion</button>
                 </div>
-
             </div>
         );
     }
