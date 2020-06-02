@@ -62,7 +62,6 @@ class ListHistory extends React.Component {
         console.log(e);
         console.log(`q hora es : ${new Date(e.time.seconds * 1000 + e.time.nanoseconds/1000)}`);
         let fecha = new Date(e.time.seconds * 1000 + e.time.nanoseconds/1000);
-        let haceCuanto = fecha - Date.now();
         const labelId = `label-${e.name}-${e.time}`;
         if ((this.state.selectedOption === e.tipo) || (this.state.selectedOption === "todo")) {
             return (
@@ -75,8 +74,9 @@ class ListHistory extends React.Component {
                     </ListItemAvatar>
                     <ListItemText id={'name-' + labelId} primary={e.name} />
                     <ListItemText className="ItemTime" id={'time-' + labelId} primary={`${moment(fecha).format('DD/MM/YYYY')}`} />
+                    <ListItemText className="ItemTime" id={'time-2-' + labelId} primary={`Hace ${moment(fecha).fromNow(true)}`} />
                     <ListItemText id={'desc-' + labelId} primary={e.desc} />
-                    {e.gasto === 0 ? <ListItemText className="saldoPositivo" id={'saldo-' + labelId} primary={`+ $${e.saldo}`} /> : <ListItemText className="saldoNegativo" id={'saldo-' + labelId} primary={`- $${e.saldo}`} />}
+                    {e.gasto === '0' ? <ListItemText className="saldoPositivo" id={'saldo-' + labelId} primary={`+ $${e.saldo}`} /> : <ListItemText className="saldoNegativo" id={'saldo-' + labelId} primary={`- $${e.saldo}`} />}
                 </ListItem>
             );
         }
