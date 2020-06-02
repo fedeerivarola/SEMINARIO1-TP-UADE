@@ -8,8 +8,10 @@ class Home extends Component {
     //CONS TRUC YOR
     constructor(props) {
         super(props);
+        console.log(props);
         this.state = {
             user: props.userHome,
+            padre: props.padreHome,
             loading: false
         }
     }
@@ -21,7 +23,8 @@ class Home extends Component {
                     <ListHistory user={this.state.user}/>
                 </div>
                 <div className="Column">
-                    <CardSaldo />
+                    <CardSaldo user={this.state.user} padre={this.state.padre}/>
+                    <div style={{backgroundColor: "green"}}> ACA VAN NOTICIAS O PROPAGANDAS </div>
                 </div>
                 
             </div>

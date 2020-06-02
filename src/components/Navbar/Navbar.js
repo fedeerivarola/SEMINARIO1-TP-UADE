@@ -3,7 +3,6 @@ import './Navbar.css';
 import { Avatar } from '@material-ui/core';
 import moni from './moni.png';
 import { logout } from '../../helpers/auth'
-import { dbPadres } from '../../services/firebase'
 import Logo from '../../assets/Logo.png'
 
 class Navbar extends React.Component {
@@ -11,34 +10,13 @@ class Navbar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            loading: true,
             user: props.user,
-            padre: {}
+            padre: props.padre
         }
     }
 
-    componentWillMount() {
-
-        let docRef = dbPadres.doc(this.state.user.userEmail);
-        docRef.get().then((doc) => {
-            if (doc.exists) {
-                this.setState({ padre: doc.data(), loading: false });
-            } else {
-                docRef.set({
-                    mail: this.state.user.userEmail
-                });
-                this.setState({ padre: { mail: this.state.user.userEmail, nombre: 'none', saldo: 0 }, loading: false });
-            }
-        }).catch((error) => {
-            console.log(`ocurrio error: ${error}`);
-        });
-
-        console.log(this.state);
-    }
-
-
     render() {
-        return this.state.loading === true ? <h1>Loading</h1> : (
+        return (
             <div className="Navbar">
                 <div className="Logo">
                     <img src={Logo}  alt="Logo"/>

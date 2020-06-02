@@ -4,7 +4,8 @@ import Navbar from '../Navbar/Navbar'
 import Home from '../Home/Home'
 import SideDrawer from '../SideDrawer/SideDrawer'
 import { BrowserRouter as Router } from 'react-router-dom'
-import { firebaseAuth } from '../../services/firebase'
+import { dbPadres, firebaseAuth } from '../../services/firebase'
+
 
 class Layout extends React.Component {
 
@@ -14,21 +15,38 @@ class Layout extends React.Component {
             ...props,
             authed: true,
             loading: true,
-            user: null
+            user: null,
+            padre: null
         }
     }
 
-    componentDidMount() {
+
+    componentDidMount(){
+
+
         this.removeListener = firebaseAuth().onAuthStateChanged((user) => {
             if (user) {
                 this.setState({
                     authed: true,
-                    loading: false,
                     user: {
                         userEmail: user.email,
                         displayName: user.displayName
                     }
                 })
+
+                let docRef = dbPadres.doc(user.email);
+                docRef.get().then((doc) => {
+                    if (doc.exists) {
+                        this.setState({ padre: doc.data(), loading: false });
+                    } else {
+                        docRef.set({
+                            mail: user.email
+                        });
+                        this.setState({ padre: { mail: user.email, nombre: user.displayName, saldo: 0 }, loading: false });
+                    }
+                }).catch((error) => {
+                    console.log(`ocurrio error: ${error}`);
+                });
             } else {
                 this.setState({
                     authed: false,
@@ -48,7 +66,7 @@ class Layout extends React.Component {
         return this.state.loading === true ? <h1>Loading</h1> : (
             <Router>
                 <div>
-                    <Navbar user={this.state.user} />
+                    <Navbar user={this.state.user} padre={this.state.padre}/>
                     <SideDrawer />
                     <div className="Content">
                         {/* <Route exact path="/home" render={() => <Home user={user}/>} />
@@ -57,7 +75,7 @@ class Layout extends React.Component {
                         <Route exact path="/niños" render={() => <h1>Niños</h1>} />
                         <Route exact path="/comercios" render={() => <h1>Comercios</h1>} /> */}
 
-                        <Home userHome={this.state.user} />
+                        <Home userHome={this.state.user} padreHome={this.state.padre}/>
                     </div>
                 </div>
             </Router>

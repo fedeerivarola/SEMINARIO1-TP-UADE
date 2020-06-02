@@ -5,17 +5,20 @@ import CashVector from './CashVector.svg'
 import Modal from '@material-ui/core/Modal';
 import Fade from '@material-ui/core/Fade';
 import Backdrop from '@material-ui/core/Backdrop';
-
+import { fieldValue, dbMov, dbPadres } from '../../services/firebase'
 
 
 class CardSaldo extends React.Component {
 
-    constructor() {
-        super(...arguments);
+    constructor(props) {
+        super(props);
         this.state = {
+            padre: props.padre,
+            user: props.user,
             openModal: false,
             sumarSaldo: 0,
-            isUpdated: false
+            isUpdated: false,
+            error: null
         }
 
         this.handleOpen = this.handleOpen.bind(this);
@@ -23,23 +26,6 @@ class CardSaldo extends React.Component {
         this.saldoInputHandler = this.saldoInputHandler.bind(this);
         this.submitSaldo = this.submitSaldo.bind(this);
     }
-
-
-    
-    componentDidMount() {
-        // userChanges((user) => {
-        //      console.log('usuario: ' + user.email);
-        //      this.setState({ user });
- 
-        //      getPapa(this.state.user.email).then(
-        //          (padre) => {
-        //              this.setState({ padre: padre });
-        //          }
-        //      )
- 
-        //  });
- 
-     }
 
     handleOpen = () => {
         this.setState({ openModal: true });
@@ -55,26 +41,30 @@ class CardSaldo extends React.Component {
 
     submitSaldo = () => {
 
-        const timestamp = Date.now(); // This would be the timestamp you want to format        
-
+        console.log(`a ver q hay aca ${fieldValue.serverTimestamp()}`);
         let movimiento = {
             desc: "Recarga de saldo",
-            mail: 'test@test.com',
-            name: 'Monica Alvarez',
-            saldo: "+" + this.state.sumarSaldo,
-            time: new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(timestamp)
-        }
-        
-        let nuevoSaldo = {
-            mail: this.state.padre.mail,
-            nombre: this.state.padre.nombre,
-            saldo: parseInt(this.state.padre.saldo) + parseInt(this.state.sumarSaldo)
+            name: this.state.padre.nombre,
+            saldo: this.state.sumarSaldo,
+            gasto: "0",
+            tipo: "recarga",
+            uid: this.state.user.userEmail,
+            time: fieldValue.serverTimestamp()
         }
 
-        // createMovimiento(movimiento)
-        // setSaldo(nuevoSaldo);
+        let nuevoSaldo = parseInt(this.state.padre.saldo) + parseInt(this.state.sumarSaldo);
+        let refPadre = dbPadres.doc(this.state.user.userEmail);
+
+        refPadre.update({ saldo: nuevoSaldo }).then(() => {
+            let nuevoMovimiento = dbMov.doc(this.state.user.userEmail).collection("historial").doc();
+            nuevoMovimiento.set( movimiento );
+        }).catch(error => {
+            this.setState({ error: error.message });
+            alert(error.message);
+        });
+
         this.setState({ openModal: false });
-        this.setState({isUpdated: true})
+        this.setState({ isUpdated: true })
     }
 
     render() {

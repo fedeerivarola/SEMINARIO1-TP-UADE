@@ -59,8 +59,8 @@ class ListHistory extends React.Component {
     }
 
     renderList = (e) => {
-        console.log(e);
-        console.log(`q hora es : ${new Date(e.time.seconds * 1000 + e.time.nanoseconds/1000)}`);
+
+        console.log(this.state.historial);
         let fecha = new Date(e.time.seconds * 1000 + e.time.nanoseconds/1000);
         const labelId = `label-${e.name}-${e.time}`;
         if ((this.state.selectedOption === e.tipo) || (this.state.selectedOption === "todo")) {
