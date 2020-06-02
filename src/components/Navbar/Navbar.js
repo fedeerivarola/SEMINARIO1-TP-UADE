@@ -19,7 +19,7 @@ class Navbar extends React.Component {
         return (
             <div className="Navbar">
                 <div className="Logo">
-                    <img src={Logo}  alt="Logo"/>
+                    <img src={Logo} alt="Logo" />
                 </div>
                 <div className="User">
                     <div className="Saldo">
@@ -28,12 +28,10 @@ class Navbar extends React.Component {
                     <Avatar className="Avatar"
                         src={moni} />
                     <div className="UserName">{this.state.padre.nombre}</div>
-                    <button
-                        style={{ border: 'none', background: 'transparent', color: 'white' }}
+                    <button className="Logout"
                         onClick={() => {
                             logout()
-                        }}
-                        className="navbar-brand">Cerrar Sesion</button>
+                        }}>Cerrar Sesion</button>
                 </div>
             </div>
         );
