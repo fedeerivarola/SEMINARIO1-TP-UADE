@@ -16,3 +16,4 @@ export const ref = firebase.database().ref()
 export const firebaseAuth = firebase.auth
 export const db = firebase.firestore()
 export const dbPadres = db.collection("padres");
+export const dbMov = db.collection("movimientos");

@@ -60,9 +60,7 @@ class App extends Component {
 
     return this.state.loading === true ? <h1>Loading</h1> : (
       <Router>
-        {/* <Route exact path="/" component={Login} />
-          <Route exact path="/home" render={() => <Layout><Home/></Layout>} />
-          <Route exact path="/login" render={() => <Login login={this.loginHandler}/>} />*/}
+        <Redirect from="/" to="/login"/>
         <PublicRoute authed={this.state.authed} path='/login' component={Login} />
         <PublicRoute authed={this.state.authed} path='/register' component={CreateUser} />
         <PrivateRoute authed={this.state.authed} path='/home' component={Layout}/>

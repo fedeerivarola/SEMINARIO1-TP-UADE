@@ -9,8 +9,8 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            mail: this.props.mail,
-            username: this.props.username
+            user: props.userHome,
+            loading: false
         }
     }
 
@@ -18,7 +18,7 @@ class Home extends Component {
         return (
             <div className="Home"> 
                 <div className="Column">
-                    <ListHistory />
+                    <ListHistory user={this.state.user}/>
                 </div>
                 <div className="Column">
                     <CardSaldo />
