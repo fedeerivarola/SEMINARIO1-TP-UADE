@@ -45,10 +45,10 @@ class Login extends React.Component {
 
     render() {
         return (
-            <div className="Background">
+            <div>
                 <div className="LoginCard">
                     <div className="CardHeader">
-                        <img src={Logo}  alt="Logo"/>     
+                        <img src={Logo} alt="Logo" />
                     </div>
                     <div className="CardContent">
                         <form className="LoginForm" onSubmit={this.handleAuth}>
@@ -68,6 +68,9 @@ class Login extends React.Component {
                         </form>
                     </div>
                 </div>
+
+                <div className="Background"></div>
+                <div className="Background2"></div>
             </div>
         );
     }
