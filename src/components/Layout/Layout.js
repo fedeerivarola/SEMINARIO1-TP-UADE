@@ -16,7 +16,8 @@ class Layout extends React.Component {
             authed: true,
             loading: true,
             user: null,
-            padre: null
+            padre: null,
+            hijos: null
         }
     }
 
@@ -35,9 +36,30 @@ class Layout extends React.Component {
                 })
 
                 let docRef = dbPadres.doc(user.email);
+                let hijosRef = docRef.collection("hijos");
+                let docs = [];
+
                 docRef.get().then((doc) => {
+
                     if (doc.exists) {
-                        setTimeout(this.setState({ padre: doc.data(), loading: false }), 10000);
+                        this.setState({ padre: doc.data() });
+
+                        hijosRef.get()
+                            .then(querySnapshot => {
+                                if (querySnapshot.docs.length === 0) {
+                                    this.setState({ loading: false });
+                                } else {
+                                    querySnapshot.forEach(doc => {
+                                        docs.push(doc.data());
+                                    });
+                                    setTimeout(this.setState({ hijos: docs, loading: false }), 10000);
+                                }
+                            })
+                            .catch((error) => {
+                                console.log(`ocurrio error: ${error.message}`);
+                                this.setState({ loading: false });
+                            });
+
                     } else {
                         docRef.set({
                             mail: user.email
@@ -48,7 +70,7 @@ class Layout extends React.Component {
                     console.log(`ocurrio error: ${error}`);
                 });
             } else {
-                setTimeout(this.setState({authed: false, loading: false}), 5000);
+                setTimeout(this.setState({ authed: false, loading: false }), 5000);
                 this.props.history.push("/login");
             }
         })
@@ -71,7 +93,7 @@ class Layout extends React.Component {
                         <Route exact path="/niños" render={() => <h1>Niños</h1>} />
                         <Route exact path="/comercios" render={() => <h1>Comercios</h1>} /> */}
 
-                        <Home userHome={this.state.user} padreHome={this.state.padre} />
+                        <Home userHome={this.state.user} padreHome={this.state.padre} hijosHome={this.state.hijos}/>
                     </div>
                 </div>
             </Router>
