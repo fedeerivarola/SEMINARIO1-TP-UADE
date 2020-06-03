@@ -1,0 +1,65 @@
+.childrensContainer{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 4;
+    margin-top: 2rem;
+}
+
+
+.FilaHijos{
+    width: 70%;
+    height: 15%;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+}
+
+.gridContainerHijos{
+    flex-grow: 1;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    
+}
+
+.GridItemHijos{
+    width: 100%;
+    height: 100%;
+}
+
+.gridHijo{
+    
+}
+
+.CardHijo{
+    height: 6rem;
+    width: 75px;
+    margin: 0 auto;
+}
+
+.FilaMenuBotones{
+    width: 70%;
+    height: 5%;
+    margin: 0 auto;
+}
+
+.BotoneraMenu{
+    width: 100%;
+    color: greenyellow;
+}
+
+.FilaMenuView{
+    width: 70%;
+    height: 70%;
+    display: flex;
+    margin: 0 auto;
+}
+.ColumnOpciones{
+    background-color: green;
+    width: 20rem;
+
+}
+.ColumnMenu{
+    background-color: yellow;
+    width: 70%;
+}
