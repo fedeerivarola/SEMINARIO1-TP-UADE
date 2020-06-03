@@ -128,10 +128,11 @@ class ListHistory extends React.Component {
                         <List dense className="ListHistory">
                             <div className="title">
                                 <h2>Ultimos movimientos</h2>
-                                <div className="unido" style={{ width: '300px', heigh: "100px" }}>
+                                <div className="unido">
                                     <p>Filtrar por:</p>
                                     <Select className="select1"
                                         options={options}
+                                        minMenuHeight={15}
                                         onChange={(event) => this.handleChange(event)}
                                         placeholder="Todos"
                                     />
