@@ -162,7 +162,11 @@
     right: 0;
     left: 0;
 }
-
+.imgProfile{
+    width: 4rem;
+    height: 4rem;
+    object-fit: cover;
+}
 .ProfileHijo{
  
     margin-bottom: 4rem;
@@ -200,11 +204,11 @@
     margin: 0 auto;
     right: 0;
     left: 350px;
-    bottom: 50px;
+    bottom: 100px;
     justify-content: center;
     align-items: center;
     float:right;
-	bottom:0px;
+	bottom:44px;
 	right:0px;
 	position:fixed;
 }

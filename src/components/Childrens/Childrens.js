@@ -147,13 +147,15 @@ class Childrens extends React.Component {
                 return (
                     <div className="ProfileHijo">
                             <div>
-                                <img src={this.state.selectedHijo.img} alt={this.state.selectedHijo.nombre}></img>
+                                <img style={{marginTop: '10px',width: '5rem', height: '5rem', objectFit: 'cover'}} src={this.state.selectedHijo.img} alt={this.state.selectedHijo.nombre}></img>
                             </div>
                             <h1 style={{textAlign: "center"}}>{this.state.selectedHijo.nombre}</h1>
                             <form className="formProfileHijo">
                                 <input type="text" placeholder="NOMBRE"></input>
                                 <input type="text" placeholder="APELLIDO"></input>
                                 <input type="text" placeholder="FECHA NACIMIENTO"></input>
+                                <h5>Saldo actual: $160</h5>
+                                
                             </form>
                             <div className="botonesProfileHijo"><button>BORRAR</button><button>GUARDAR</button></div>
                     </div>
