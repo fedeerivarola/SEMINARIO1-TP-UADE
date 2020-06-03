@@ -11,13 +11,14 @@ import moment from 'moment';
 
 class ListHistory extends React.Component {
 
+
     constructor(props) {
         super(props);
         this.state = {
             user: props.userLH,
             selectedOption: "todo",
             loading: true,
-            historial: null,
+            historial: [],
             error: null
         }
     }
@@ -60,10 +61,11 @@ class ListHistory extends React.Component {
 
     renderList = (e) => {
 
-        console.log(this.state.historial);
+        { console.log(`Option selected:`, this.state.selectedOption,'   -Dato:',e); }
         let fecha = new Date(e.time.seconds * 1000 + e.time.nanoseconds/1000);
         const labelId = `label-${e.name}-${e.time}`;
         if ((this.state.selectedOption === e.tipo) || (this.state.selectedOption === "todo")) {
+            {   console.log('Se eligio: ',e); }
             return (
                 <ListItem key={e} button className="Registro">
                     <ListItemAvatar>
@@ -82,12 +84,28 @@ class ListHistory extends React.Component {
         }
     }
 
+    /*    const filteredMovements = lista.filter(movement => {
+            console.log(movement);
+            return movement.tipo.toLowerCase().indexOf(this.state.selectedOption.toLowerCase()) !== -1;
+        });    */
+
     render() {
         const options = [
             { value: 'todo', label: 'Todos' },
             { value: 'gasto', label: 'Gastos' },
             { value: 'recarga', label: 'Recarga' },
         ]
+
+        const lista = this.state.historial;
+
+        const filteredMovements = lista.filter(movement => {
+            if (this.state.selectedOption == 'todo'){
+                return movement;
+            }else{
+                return movement.tipo.toLowerCase().indexOf(this.state.selectedOption.toLowerCase()) !== -1;
+            }
+            console.log('Valor seleccionado:::',this.state.selectedOption);
+        }); 
 
         if (this.state.loading === true) {
             return (<h1>Loading</h1>)
@@ -112,8 +130,10 @@ class ListHistory extends React.Component {
                                     </div>
                                 </div>
                             </div>
-                            {this.state.historial.map((value) => {
-                                return this.renderList(value);
+                            {   
+                                console.log('FilteredList: ',filteredMovements),
+                                 filteredMovements.map((value) => {
+                                    return this.renderList(value);
                             })}
                         </List>
                     </div>
