@@ -6,6 +6,13 @@ import Modal from '@material-ui/core/Modal';
 import Fade from '@material-ui/core/Fade';
 import Backdrop from '@material-ui/core/Backdrop';
 import { fieldValue, dbMov, dbPadres } from '../../services/firebase'
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import Avatar from '@material-ui/core/Avatar';
+
+
 
 class CardSaldo extends React.Component {
 
@@ -14,6 +21,7 @@ class CardSaldo extends React.Component {
         this.state = {
             padre: props.padreCS,
             user: props.userCS,
+            hijos: props.hijosCS,
             openModal: false,
             sumarSaldo: 0,
             isUpdated: false,
@@ -66,13 +74,43 @@ class CardSaldo extends React.Component {
 
     }
 
+    renderList = (e) => {
+
+        const labelId = `label-${e.name}`;
+        return (
+            <ListItem key={e} button className="ItemHijo">
+                <ListItemAvatar>
+                    <Avatar
+                        alt={`Avatar n°${e + 1}`}
+                        src={e.img}
+                    />
+                </ListItemAvatar>
+                <ListItemText id={'name-' + labelId} primary={e.nombre} />
+                <ListItemText id={'desc-' + labelId} primary={`$${e.saldoAsignado}`} />
+            </ListItem>
+        );
+    }
+
     render() {
-       
+
         return (
             <div className="CardSaldo">
                 <img className="imgSaldo" alt='imgSaldo' src={CashVector} />
-                <div className="lblSaldo"><b>Saldo</b></div>
-                <button className="btnSaldo" onClick={this.handleOpen}><img className="imgBtn" alt='imgSumarSaldo' src={masCashVector} />Añadir fondos</button>
+                <div>
+                    <List dense className="SaldoListHijos">
+                        <div className="title_SaldoListHijos"><p>Saldo asignado</p></div>
+
+                        <div className="SaldoListItemHijos">
+                            {
+                                this.state.hijos.map((value) => {
+                                    return this.renderList(value);
+                                })
+                            }
+                        </div>
+                    </List>
+                    <button className="btnSaldo" onClick={this.handleOpen}><img className="imgBtn" alt='imgSumarSaldo' src={masCashVector} />Añadir fondos</button>
+                </div>
+                
 
                 <Modal className="modal"
                     open={this.state.openModal}
@@ -93,7 +131,7 @@ class CardSaldo extends React.Component {
                         </div>
                     </Fade>
                 </Modal>
-            </div>
+            </div >
 
         );
     }

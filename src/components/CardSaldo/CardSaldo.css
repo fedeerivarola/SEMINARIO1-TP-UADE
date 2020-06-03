@@ -1,12 +1,13 @@
 .CardSaldo {
-    width: 300px;
-    height: 151px;
+    width: 19rem;
+    height: 14rem;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     box-shadow: 0px 3px 6px #00000029;
     border-radius: 12px;
     display: flex;
     position: relative;
     text-align: center;
+    padding-top: 2px;
 }
 
 .imgSaldo {
@@ -32,16 +33,18 @@
 }
 
 .btnSaldo {
+    
     outline: none;
     border-color: white;
     border-top-color: gray;
     color: black;
     height: 40px;
     width: 100%;
-    padding-left: 1rem;
     position: absolute;
-    left: 0px;
-    top: 90px;
+    left:0px;
+    /* left: 0px;
+    top: 90px; */
+    top: 165px;
     border-radius: 10px;
 }
 
@@ -53,7 +56,7 @@
 .cargarSaldo {
     position: 'absolute';
     width: 400px;
-    background-color:white;
+    background-color: white;
     border: '2px solid #000';
     box-shadow: black;
     position: absolute;
@@ -68,4 +71,47 @@
     display: 'flex';
     align-items: 'center';
     justify-content: 'center';
+}
+
+.SaldoListHijos {
+    position: absolute;
+    width: 19rem;
+    height: 10rem;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    opacity: 1;
+    padding-bottom: 2rem;
+    margin-top: 1rem;
+    border-radius: 12px;
+}
+
+.SaldoListItemHijos {
+    position: absolute;
+    width: 19rem;
+    height: 8rem;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    opacity: 1;
+    padding-bottom: 1rem;
+}
+
+.ItemHijo{
+    position: absolute;
+    width: 4rem;
+    height: 4rem;
+}
+
+.title_SaldoListHijos{
+    position: relative;
+    margin: 0 auto;
+    right: 0;
+    left: 0;
+    margin-left: 1rem;
+}
+
+.nameListItemText{
+    font: bold;
+    font-size: 24px;
+    letter-spacing: 0px;
+    color: #2A2A00;   
 }

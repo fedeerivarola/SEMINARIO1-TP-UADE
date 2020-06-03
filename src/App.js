@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import './App.css';
 import Login from './components/Login/Login'
+import sandia from './assets/Cargando_sandia.gif'
 import Layout from './components/Layout/Layout'
 import CreateUser from './components/CreateUser/createUser'
 import { firebaseAuth } from './services/firebase/config'
@@ -58,7 +59,7 @@ class App extends Component {
   render() {
     console.log(this.state)
 
-    return this.state.loading === true ? <h1>Loading</h1> : (
+    return this.state.loading === true ? <img className="cargandoApp" src={sandia} alt="cargando"></img> : (
       <Router>
         <Redirect from="/" to="/login"/>
         <PublicRoute authed={this.state.authed} path='/login' component={Login} />

@@ -5,3 +5,10 @@
 .components {
     z-index: 2;
 }
+
+.cargandoApp {
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: 10%;
+}

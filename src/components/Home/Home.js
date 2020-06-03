@@ -13,6 +13,7 @@ class Home extends Component {
         this.state = {
             user: props.userHome,
             padre: props.padreHome,
+            hijos: props.hijosHome,
             loading: false
         }
     }
@@ -25,7 +26,7 @@ class Home extends Component {
                 </div>
                 <div className="Column">
                     <div className="cardSaldo">
-                        <CardSaldo userCS={this.state.user} padreCS={this.state.padre} />
+                        <CardSaldo userCS={this.state.user} padreCS={this.state.padre} hijosCS={this.state.hijos}/>
                     </div>
                     <div className="timelineTwitter">
                         <TwitterTimelineEmbed
