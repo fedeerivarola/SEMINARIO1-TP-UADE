@@ -6,7 +6,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
-import { dbMov } from '../../services/firebase';
+import { dbMov, avatar } from '../../services/firebase';
 import moment from 'moment';
 import sandia from '../../assets/Cargando_sandia.gif'
 
@@ -17,6 +17,8 @@ class ListHistory extends React.Component {
         super(props);
         this.state = {
             user: props.userLH,
+            hijos: props.hijosLH,
+            profile: props.profileLH,
             selectedOption: "todo",
             loading: true,
             historial: [],
@@ -61,6 +63,20 @@ class ListHistory extends React.Component {
     }
 
     renderList = (e) => {
+        console.log(e)
+
+        let hijos = [];
+        hijos = this.state.hijos;
+        let img;
+
+        for (let index = 0; index < hijos.length; index++) {
+            if (e.uid === hijos[index].uid) {
+                 img = hijos[index].img;
+            } else if (e.uid === this.state.user.userEmail){
+                img = this.state.profile;
+            }
+
+        }
 
         let fecha = new Date(e.time.seconds * 1000 + e.time.nanoseconds / 1000);
         const labelId = `label-${e.name}-${e.time}`;
@@ -70,7 +86,7 @@ class ListHistory extends React.Component {
                     <ListItemAvatar>
                         <Avatar
                             alt={`Avatar n°${e + 1}`}
-                            src={e.img}
+                            src={img}
                         />
                     </ListItemAvatar>
                     <ListItemText id={'name-' + labelId} primary={e.name} />

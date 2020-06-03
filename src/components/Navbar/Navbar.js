@@ -11,11 +11,13 @@ class Navbar extends React.Component {
         super(props);
         this.state = {
             user: props.user,
-            padre: props.padre
+            padre: props.padre,
+            imgProfile: props.profile
         }
     }
 
     render() {
+        console.log(this.state.imgProfile)
         return (
             <div className="Navbar">
                 <div className="Logo">
@@ -26,7 +28,7 @@ class Navbar extends React.Component {
                         ${this.state.padre.saldo}
                     </div>
                     <Avatar className="Avatar"
-                        src={moni} />
+                        src={this.state.imgProfile} />
                     <div className="UserName">{this.state.padre.nombre}</div>
                     <button className="Logout"
                         onClick={() => {

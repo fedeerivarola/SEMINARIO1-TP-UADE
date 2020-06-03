@@ -12,6 +12,7 @@
     margin-left: 15rem; */
     min-height: calc(100vh - 56px);
     background-color: #FBFBFB;
+    z-index: 3;
 }
 
 .cargando {

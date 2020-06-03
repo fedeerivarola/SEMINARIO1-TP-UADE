@@ -14,6 +14,7 @@ class Home extends Component {
             user: props.userHome,
             padre: props.padreHome,
             hijos: props.hijosHome,
+            profile: props.profileHome,
             loading: false
         }
     }
@@ -22,7 +23,7 @@ class Home extends Component {
         return (
             <div className="Home">
                 <div className="Column">
-                    <ListHistory userLH={this.state.user} />
+                    <ListHistory userLH={this.state.user} hijosLH={this.state.hijos} profileLH={this.state.profile}/>
                 </div>
                 <div className="Column">
                     <div className="cardSaldo">

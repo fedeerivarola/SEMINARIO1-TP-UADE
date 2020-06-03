@@ -20,12 +20,12 @@
  .cargandoList {
   position: fixed;
   margin: 0 auto;
-  justify-content: center;
+  justify-content: left;
   left: 0;
-  right: 0;
-  top: 10%;
-  width: 200px;
-  height: 200px;
+  right: 600px;
+  top: 30%;
+  width: 300px;
+  height: 250px;
 }
 
 .nombreHijo {

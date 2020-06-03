@@ -3,8 +3,9 @@ import './Layout.css'
 import Navbar from '../Navbar/Navbar'
 import Home from '../Home/Home'
 import SideDrawer from '../SideDrawer/SideDrawer'
-import { BrowserRouter as Router } from 'react-router-dom'
-import { dbPadres, firebaseAuth } from '../../services/firebase'
+import Childrens from '../Childrens/Childrens'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { avatar, dbPadres, firebaseAuth } from '../../services/firebase'
 import sandia from '../../assets/Cargando_sandia.gif'
 
 class Layout extends React.Component {
@@ -17,7 +18,8 @@ class Layout extends React.Component {
             loading: true,
             user: null,
             padre: null,
-            hijos: null
+            hijos: null,
+            profile: null
         }
     }
 
@@ -43,7 +45,7 @@ class Layout extends React.Component {
 
                     if (doc.exists) {
                         this.setState({ padre: doc.data() });
-
+                        this.setState({profile: doc.data().profilePic})
                         hijosRef.get()
                             .then(querySnapshot => {
                                 if (querySnapshot.docs.length === 0) {
@@ -84,16 +86,14 @@ class Layout extends React.Component {
         return this.state.loading === true ? <img className="cargando" src={sandia} alt="cargando"></img> : (
             <Router>
                 <div>
-                    <Navbar user={this.state.user} padre={this.state.padre} />
+                    <Navbar user={this.state.user} padre={this.state.padre} profile={this.state.profile}/>
                     <SideDrawer />
                     <div className="Content">
-                        {/* <Route exact path="/home" render={() => <Home user={user}/>} />
-                        <Route exact path="/saldo" render={() => <h1>Saldos</h1>}/>
+                        <Route exact path="/home" render={() => <Home userHome={this.state.user} padreHome={this.state.padre} hijosHome={this.state.hijos} profileHome={this.state.profile}/>} />
+                        <Route exact path="/childrens" render={() => <Childrens userCh={this.state.user} padreCh={this.state.padre} hijosCh={this.state.hijos}/>} />
+                        <Route exact path="/saldo" render={() => <h1>Saldos</h1>} />
                         <Route exact path="/movimientos" render={() => <h1>Movimientos</h1>} />
-                        <Route exact path="/niños" render={() => <h1>Niños</h1>} />
-                        <Route exact path="/comercios" render={() => <h1>Comercios</h1>} /> */}
-
-                        <Home userHome={this.state.user} padreHome={this.state.padre} hijosHome={this.state.hijos}/>
+                        <Route exact path="/comercios" render={() => <h1>Comercios</h1>} />
                     </div>
                 </div>
             </Router>
