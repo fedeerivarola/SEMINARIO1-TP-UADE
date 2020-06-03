@@ -1,6 +1,7 @@
 import React from 'react'
 import './Layout.css'
 import Navbar from '../Navbar/Navbar'
+import Comercios from '../Comercios/Comercios'
 import Home from '../Home/Home'
 import SideDrawer from '../SideDrawer/SideDrawer'
 import Childrens from '../Childrens/Childrens'
@@ -93,7 +94,7 @@ class Layout extends React.Component {
                         <Route exact path="/childrens" render={() => <Childrens userCh={this.state.user} padreCh={this.state.padre} hijosCh={this.state.hijos}/>} />
                         <Route exact path="/saldo" render={() => <h1>Saldos</h1>} />
                         <Route exact path="/movimientos" render={() => <h1>Movimientos</h1>} />
-                        <Route exact path="/comercios" render={() => <h1>Comercios</h1>} />
+                        <Route exact path="/comercios" render={() => <Comercios/>} />
                     </div>
                 </div>
             </Router>
