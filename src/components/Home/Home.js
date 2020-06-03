@@ -21,11 +21,11 @@ class Home extends Component {
         return (
             <div className="Home">
                 <div className="Column">
-                    <ListHistory user={this.state.user} />
+                    <ListHistory userLH={this.state.user} />
                 </div>
                 <div className="Column">
                     <div className="cardSaldo">
-                        <CardSaldo user={this.state.user} padre={this.state.padre} />
+                        <CardSaldo userCS={this.state.user} padreCS={this.state.padre} />
                     </div>
                     <div className="timelineTwitter">
                         <TwitterTimelineEmbed

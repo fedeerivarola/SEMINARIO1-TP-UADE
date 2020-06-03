@@ -12,8 +12,8 @@ class CardSaldo extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            padre: props.padre,
-            user: props.user,
+            padre: props.padreCS,
+            user: props.userCS,
             openModal: false,
             sumarSaldo: 0,
             isUpdated: false,

@@ -14,7 +14,7 @@ class ListHistory extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: props.user,
+            user: props.userLH,
             selectedOption: "todo",
             loading: true,
             historial: null,

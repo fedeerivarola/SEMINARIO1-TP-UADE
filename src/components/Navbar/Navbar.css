@@ -69,9 +69,10 @@
     border: none;
     background: transparent;
     color: white;
-    padding-bottom: 2px;
-    padding-left: 10px;
+    /* padding-bottom: 2px;
+    padding-left: 10px; */
     text-align: center;
     position: relative;
     margin-left: 1rem;
+    top: -15px;
 }
