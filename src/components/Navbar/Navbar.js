@@ -3,7 +3,7 @@ import './Navbar.css';
 import { Avatar } from '@material-ui/core';
 import moni from './moni.png';
 import { logout } from '../../helpers/auth'
-import Logo from '../../assets/Logo.png'
+import Logo from '../../assets/logo.png'
 
 class Navbar extends React.Component {
 
