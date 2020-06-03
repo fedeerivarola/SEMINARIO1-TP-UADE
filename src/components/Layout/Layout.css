@@ -1,9 +1,8 @@
-.Content{
+.Content {
     display: flex;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    
     position: fixed;
     top: 56px;
     left: 15rem;
@@ -13,4 +12,12 @@
     margin-left: 15rem; */
     min-height: calc(100vh - 56px);
     background-color: #FBFBFB;
+}
+
+.cargando {
+    position: fixed;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: 10%;
 }

@@ -5,7 +5,7 @@ import Home from '../Home/Home'
 import SideDrawer from '../SideDrawer/SideDrawer'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { dbPadres, firebaseAuth } from '../../services/firebase'
-
+import sandia from '../../assets/Cargando_sandia.gif'
 
 class Layout extends React.Component {
 
@@ -21,7 +21,7 @@ class Layout extends React.Component {
     }
 
 
-    componentDidMount(){
+    componentDidMount() {
 
 
         this.removeListener = firebaseAuth().onAuthStateChanged((user) => {
@@ -37,7 +37,7 @@ class Layout extends React.Component {
                 let docRef = dbPadres.doc(user.email);
                 docRef.get().then((doc) => {
                     if (doc.exists) {
-                        this.setState({ padre: doc.data(), loading: false });
+                        setTimeout(this.setState({ padre: doc.data(), loading: false }), 10000);
                     } else {
                         docRef.set({
                             mail: user.email
@@ -48,11 +48,7 @@ class Layout extends React.Component {
                     console.log(`ocurrio error: ${error}`);
                 });
             } else {
-                this.setState({
-                    authed: false,
-                    loading: false
-                })
-
+                setTimeout(this.setState({authed: false, loading: false}), 5000);
                 this.props.history.push("/login");
             }
         })
@@ -63,10 +59,10 @@ class Layout extends React.Component {
     }
 
     render() {
-        return this.state.loading === true ? <h1>Loading</h1> : (
+        return this.state.loading === true ? <img className="cargando" src={sandia} alt="cargando"></img> : (
             <Router>
                 <div>
-                    <Navbar user={this.state.user} padre={this.state.padre}/>
+                    <Navbar user={this.state.user} padre={this.state.padre} />
                     <SideDrawer />
                     <div className="Content">
                         {/* <Route exact path="/home" render={() => <Home user={user}/>} />
@@ -75,7 +71,7 @@ class Layout extends React.Component {
                         <Route exact path="/niños" render={() => <h1>Niños</h1>} />
                         <Route exact path="/comercios" render={() => <h1>Comercios</h1>} /> */}
 
-                        <Home userHome={this.state.user} padreHome={this.state.padre}/>
+                        <Home userHome={this.state.user} padreHome={this.state.padre} />
                     </div>
                 </div>
             </Router>

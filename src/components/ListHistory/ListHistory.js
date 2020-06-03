@@ -8,6 +8,7 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import { dbMov } from '../../services/firebase';
 import moment from 'moment';
+import sandia from '../../assets/Cargando_sandia.gif'
 
 class ListHistory extends React.Component {
 
@@ -100,7 +101,7 @@ class ListHistory extends React.Component {
         });
 
         if (this.state.loading === true) {
-            return (<h1>Loading</h1>)
+            return (<img className="cargandoList" src={sandia} alt="cargando"></img>)
         } else if (this.state.loading !== true) {
             if (this.state.error) {
                 return (<div>{this.state.error}</div>);
