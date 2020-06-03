@@ -5,7 +5,6 @@
     box-shadow: 0px 3px 6px #00000029;
     border-radius: 12px;
     opacity: 1;
-    overflow: auto;
 }
 
 .Registro {
@@ -69,27 +68,32 @@
 }
 
 p {
-    top: 129px;
+    /* top: 129px;
     left: 327px;
     width: 229px;
-    height: 32px;
+    height: 32px; */
     text-align: left;
     font: Regular 23px/32px Open Sans;
     font-weight: bold;
     letter-spacing: 0px;
     color: #000000E6;
     opacity: 1;
+    position: relative;
+    margin-right: 2rem;
+    justify-content: center;
 }
 
 .select1 {
-    position: absolute;
-    width: 229px;
-    height: 20px;
+    position: relative;
+    width: 300px;
+    font: Regular 20px Open Sans;
+    margin-bottom: 4rem;
 }
 
 .title {
     padding-left: 26px;
-    padding-top: 26px;
+    /* padding-top: 26px; */
+    padding-bottom: 1rem;
 }
 
 .inner {
@@ -107,5 +111,49 @@ p {
 
 .unido{
     display: flex;
-    position: relative;
+    position: absolute;
 }
+
+.itemsList{
+    margin-top: 4rem;
+    padding-bottom: 2rem;
+    margin-bottom: 4rem;
+    width: 40rem;
+    height: 29rem;
+    border-radius: 12px;
+	overflow-y: scroll;
+}
+
+  
+  /* Tamaño del scroll */
+  .itemsList::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+   /* Estilos barra (thumb) de scroll */
+  .itemsList::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+  }
+  
+  .itemsList::-webkit-scrollbar-thumb:active {
+    background-color: #999999;
+  }
+  
+  .itemsList::-webkit-scrollbar-thumb:hover {
+    background: #b3b3b3;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+  }
+  
+   /* Estilos track de scroll */
+  .itemsList::-webkit-scrollbar-track {
+    background: #e1e1e1;
+    border-radius: 4px;
+  }
+  
+  .itemsList::-webkit-scrollbar-track:hover, 
+  .itemsList::-webkit-scrollbar-track:active {
+    background: #d4d4d4;
+  }
+  

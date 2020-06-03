@@ -61,11 +61,9 @@ class ListHistory extends React.Component {
 
     renderList = (e) => {
 
-        { console.log(`Option selected:`, this.state.selectedOption,'   -Dato:',e); }
-        let fecha = new Date(e.time.seconds * 1000 + e.time.nanoseconds/1000);
+        let fecha = new Date(e.time.seconds * 1000 + e.time.nanoseconds / 1000);
         const labelId = `label-${e.name}-${e.time}`;
         if ((this.state.selectedOption === e.tipo) || (this.state.selectedOption === "todo")) {
-            {   console.log('Se eligio: ',e); }
             return (
                 <ListItem key={e} button className="Registro">
                     <ListItemAvatar>
@@ -84,11 +82,6 @@ class ListHistory extends React.Component {
         }
     }
 
-    /*    const filteredMovements = lista.filter(movement => {
-            console.log(movement);
-            return movement.tipo.toLowerCase().indexOf(this.state.selectedOption.toLowerCase()) !== -1;
-        });    */
-
     render() {
         const options = [
             { value: 'todo', label: 'Todos' },
@@ -99,13 +92,12 @@ class ListHistory extends React.Component {
         const lista = this.state.historial;
 
         const filteredMovements = lista.filter(movement => {
-            if (this.state.selectedOption == 'todo'){
+            if (this.state.selectedOption === 'todo') {
                 return movement;
-            }else{
+            } else {
                 return movement.tipo.toLowerCase().indexOf(this.state.selectedOption.toLowerCase()) !== -1;
             }
-            console.log('Valor seleccionado:::',this.state.selectedOption);
-        }); 
+        });
 
         if (this.state.loading === true) {
             return (<h1>Loading</h1>)
@@ -118,23 +110,23 @@ class ListHistory extends React.Component {
                     <div>
                         <List dense className="ListHistory">
                             <div className="title">
-                                <div className="wrapped">
-                                    <p>Ultimos movimientos</p>
-                                    <div className="unido" style={{ width: '300px', heigh: "100px" }}>
-                                        <p>Filtrar por:</p>
-                                        <Select className="select1"
-                                            options={options}
-                                            onChange={(event) => this.handleChange(event)}
-                                            placeholder="Todos"
-                                        />
-                                    </div>
+                                <h2>Ultimos movimientos</h2>
+                                <div className="unido" style={{ width: '300px', heigh: "100px" }}>
+                                    <p>Filtrar por:</p>
+                                    <Select className="select1"
+                                        options={options}
+                                        onChange={(event) => this.handleChange(event)}
+                                        placeholder="Todos"
+                                    />
                                 </div>
                             </div>
-                            {   
-                                console.log('FilteredList: ',filteredMovements),
-                                 filteredMovements.map((value) => {
-                                    return this.renderList(value);
-                            })}
+                            <div className="itemsList">
+                                {
+                                    filteredMovements.map((value) => {
+                                        return this.renderList(value);
+                                    })
+                                }
+                            </div>
                         </List>
                     </div>
                 );
