@@ -69,11 +69,10 @@
 
 .ColumnMenu {
     margin-top: 1rem;
-    padding-top: 3rem;
-    background-color: white;
+    /* background-color: white; */
     width: 70%;
-    background: #FFFFFF 0% 0% no-repeat padding-box;
-    box-shadow: 0px 3px 6px #00000029;
+    /* background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029; */
     opacity: 1;
     height: 24rem;
     border-radius: 12px;
@@ -109,11 +108,13 @@
 .CardAlimento {
     height: 8rem;
     width: 100px;
-    margin: 0 auto;
+    margin: 1 auto;
     display: flexbox;
     justify-content: center;
     position: relative;
     font-size: 12px;
+    margin-left: 35px;
+    margin-top: 15px;
 }
 
 .CardAlimento img {
@@ -128,4 +129,82 @@
     margin: 0 auto;
     right: 0;
     left: 0;
+}
+
+
+.CardComercios{
+    width: 100%;
+    height: 24rem;
+}
+
+.CardComercio {
+    height: 8rem;
+    width: 100px;
+    margin: 1 auto;
+    margin-left: 35px;
+    margin-top: 15px;
+    display: flexbox;
+    justify-content: center;
+    position: relative;
+    font-size: 12px;
+}
+
+.CardComercio img {
+    width: 100%;
+    height: 60px;
+}
+
+.BotonCardComercio {
+    width: 100%;
+    position: relative;
+    justify-content: center;
+    margin: 0 auto;
+    right: 0;
+    left: 0;
+}
+
+.ProfileHijo{
+ 
+    margin-bottom: 4rem;
+    width: 30rem;
+    height: 30rem;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    display: inline-block;
+    position: absolute;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    opacity: 1;
+    border-radius: 12px;
+}
+
+.ProfileHijo img{
+    width: 12rem;
+    height: 12rem;
+    justify-content: center;
+    margin-left: 35%; 
+}
+
+.formProfileHijo{
+    position: absolute;
+    display: inline-block;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 30%;
+}
+
+.botonesProfileHijo{
+    width: 300px;
+
+    margin: 0 auto;
+    right: 0;
+    left: 350px;
+    bottom: 50px;
+    justify-content: center;
+    align-items: center;
+    float:right;
+	bottom:0px;
+	right:0px;
+	position:fixed;
 }

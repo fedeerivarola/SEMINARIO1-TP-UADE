@@ -37,7 +37,7 @@ class Childrens extends React.Component {
     handleSelectedHijo = (value) => {
 
         alert(`test: selecciono a ${value.nombre}`)
-        this.setState({ selectedHijo: value.uid });
+        this.setState({ selectedHijo: value });
     }
 
     renderOpciones() {
@@ -84,7 +84,7 @@ class Childrens extends React.Component {
             return <div>LIMITES</div>
         }
         if (this.state.view === 'PERFIL') {
-            return <div>PERFIL</div>
+            return null
         }
 
     }
@@ -116,15 +116,52 @@ class Childrens extends React.Component {
             </div>);
         }
         if (this.state.view === 'LOCALES') {
-            return <div>LOCALES</div>
+            let comercios = [{ desc: 'Av. San Juan 616', img: 'https://diariolaportada.com.ar/wp-content/uploads/2019/05/Kiosko-solidario-2.jpg', permiso: false },
+            { desc: 'Av. De Mayo 1116', img: 'https://px.cdn.lanueva.com/082019/1566559128595.jpg', permiso: false },
+            { desc: 'Av. San Pedro 616', img: 'https://inforbano.com.ar/wp-content/uploads/2018/10/44330644_248691659152032_6214889948726689792_n.jpg', permiso: true },
+            { desc: 'Av. Siempreviva 717', img: 'https://px.cdn.lanueva.com/082019/1566559128595.jpg', permiso: false },
+            { desc: 'Calle 616', img: 'https://diariolaportada.com.ar/wp-content/uploads/2019/05/Kiosko-solidario-2.jpg', permiso: false },
+            { desc: 'Calle Callecita 1116', img: 'https://px.cdn.lanueva.com/082019/1566559128595.jpg', permiso: false },
+            { desc: 'Otra direccion 616', img: 'https://inforbano.com.ar/wp-content/uploads/2018/10/44330644_248691659152032_6214889948726689792_n.jpg', permiso: true }]
+
+            return (<div className="CardComercios">
+                <Grid container justify="left" spacing={5}>
+                    {comercios.map((value) => {
+                        const comercioId = `comercio-${value}`;
+                        return (
+                            <Card id={comercioId} className="CardComercio">
+                                <img src={value.img} alt={value.desc}></img>
+                                {value.desc}
+                                {value.permiso === true ? <CardActionArea id={`action-${comercioId}`} className="BotonCardComercio">Quitar</CardActionArea> : <CardActionArea id={`action-${comercioId}`} className="BotonCardComercio">Permitir</CardActionArea>}
+                            </Card>
+                        );
+                    })}
+                </Grid>
+            </div>)
         }
         if (this.state.view === 'LIMITES') {
             return <div>LIMITES</div>
         }
         if (this.state.view === 'PERFIL') {
-            return <div>PERFIL</div>
+            if (this.state.selectedHijo) {
+                return (
+                    <div className="ProfileHijo">
+                            <div>
+                                <img src={this.state.selectedHijo.img} alt={this.state.selectedHijo.nombre}></img>
+                            </div>
+                            <h1 style={{textAlign: "center"}}>{this.state.selectedHijo.nombre}</h1>
+                            <form className="formProfileHijo">
+                                <input type="text" placeholder="NOMBRE"></input>
+                                <input type="text" placeholder="APELLIDO"></input>
+                                <input type="text" placeholder="FECHA NACIMIENTO"></input>
+                            </form>
+                            <div className="botonesProfileHijo"><button>BORRAR</button><button>GUARDAR</button></div>
+                    </div>
+                )
+            } else {
+                return (<div>DEBE SELECCIONAR UN HIJO</div>);
+            }
         }
-
     }
 
     render() {
