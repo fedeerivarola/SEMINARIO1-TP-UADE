@@ -78,33 +78,47 @@
     opacity: 1;
 }
 
-p {
+.ListHistory p {
     /* top: 129px;
     left: 327px;
     width: 229px;
     height: 32px; */
     text-align: left;
     font: Regular 23px/32px Open Sans;
-    font-weight: bold;
+    /* font-weight: bold; */
     letter-spacing: 0px;
     color: #000000E6;
-    opacity: 1;
     position: relative;
     margin-right: 2rem;
     justify-content: center;
+    margin: 0;
+    height: max-content;
+    
+}
+
+.ListHistory h2{
+  margin: 0;
+  height: max-content;
+  min-width: max-content;
 }
 
 .select1 {
-    position: relative;
-    width: 300px;
-    font: Regular 20px Open Sans;
-    margin-bottom: 4rem;
+  width: 10rem;
+  font: Regular 20px Open Sans;
+  height: 100%;
+  
 }
 
+
 .title {
-    padding-left: 26px;
-    /* padding-top: 26px; */
-    padding-bottom: 1rem;
+  padding: 0 1.5rem ;
+  padding-bottom: 0.5rem;
+  display: flex;
+  height: 5rem;
+  font-size: 15px;
+  justify-content: space-between;
+  align-items: center;
+
 }
 
 .inner {
@@ -122,17 +136,19 @@ p {
 
 .unido{
     display: flex;
-    position: absolute;
+    align-items: center;
+    
+    width: 16rem;
+    justify-content: space-around;
+    
 }
-
+.unido p{
+  min-width: max-content;
+}
 .itemsList{
-    margin-top: 4rem;
-    padding-bottom: 2rem;
-    margin-bottom: 4rem;
-    width: 40rem;
-    height: 29rem;
-    border-radius: 12px;
-	overflow-y: scroll;
+  width: 100%;
+  height: 34rem;
+  overflow-y: scroll;
 }
 
   
@@ -150,21 +166,22 @@ p {
   
   .itemsList::-webkit-scrollbar-thumb:active {
     background-color: #999999;
+    border-radius: 4px;
   }
   
   .itemsList::-webkit-scrollbar-thumb:hover {
     background: #b3b3b3;
-    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
   }
   
    /* Estilos track de scroll */
   .itemsList::-webkit-scrollbar-track {
-    background: #e1e1e1;
+    background: transparent;
     border-radius: 4px;
   }
   
   .itemsList::-webkit-scrollbar-track:hover, 
   .itemsList::-webkit-scrollbar-track:active {
-    background: #d4d4d4;
+    background: transparent;
   }
   

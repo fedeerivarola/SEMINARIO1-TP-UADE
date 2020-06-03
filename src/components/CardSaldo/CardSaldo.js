@@ -99,7 +99,6 @@ class CardSaldo extends React.Component {
                 <div>
                     <List dense className="SaldoListHijos">
                         <div className="title_SaldoListHijos"><p>Saldo asignado</p></div>
-
                         <div className="SaldoListItemHijos">
                             {
                                 this.state.hijos.map((value) => {
