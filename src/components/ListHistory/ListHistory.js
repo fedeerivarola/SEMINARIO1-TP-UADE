@@ -6,7 +6,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
-import { dbMov, avatar } from '../../services/firebase';
+import { dbMov } from '../../services/firebase';
 import moment from 'moment';
 import sandia from '../../assets/Cargando_sandia.gif'
 
