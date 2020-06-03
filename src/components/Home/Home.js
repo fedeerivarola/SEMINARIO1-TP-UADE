@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Home.css';
 import ListHistory from '../ListHistory/ListHistory.js';
 import CardSaldo from '../CardSaldo/CardSaldo';
+import { TwitterTimelineEmbed } from 'react-twitter-embed';
 
 class Home extends Component {
 
@@ -18,15 +19,23 @@ class Home extends Component {
 
     render() {
         return (
-            <div className="Home"> 
+            <div className="Home">
                 <div className="Column">
-                    <ListHistory user={this.state.user}/>
+                    <ListHistory user={this.state.user} />
                 </div>
                 <div className="Column">
-                    <CardSaldo user={this.state.user} padre={this.state.padre}/>
-                    <div style={{backgroundColor: "green"}}> ACA VAN NOTICIAS O PROPAGANDAS </div>
+                    <div className="cardSaldo">
+                        <CardSaldo user={this.state.user} padre={this.state.padre} />
+                    </div>
+                    <div className="timelineTwitter">
+                        <TwitterTimelineEmbed
+                            sourceType="profile"
+                            screenName="UNICEFargentina"
+                            options={{ height: 400, width: 300 }}
+                        />
+                    </div>
                 </div>
-                
+
             </div>
         );
     }

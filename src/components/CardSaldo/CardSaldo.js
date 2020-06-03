@@ -7,7 +7,6 @@ import Fade from '@material-ui/core/Fade';
 import Backdrop from '@material-ui/core/Backdrop';
 import { fieldValue, dbMov, dbPadres } from '../../services/firebase'
 
-
 class CardSaldo extends React.Component {
 
     constructor(props) {
@@ -40,7 +39,6 @@ class CardSaldo extends React.Component {
     }
 
     submitSaldo = () => {
-
         console.log(`a ver q hay aca ${fieldValue.serverTimestamp()}`);
         let movimiento = {
             desc: "Recarga de saldo",
@@ -57,18 +55,19 @@ class CardSaldo extends React.Component {
 
         refPadre.update({ saldo: nuevoSaldo }).then(() => {
             let nuevoMovimiento = dbMov.doc(this.state.user.userEmail).collection("historial").doc();
-            nuevoMovimiento.set( movimiento );
+            nuevoMovimiento.set(movimiento)
         }).catch(error => {
             this.setState({ error: error.message });
             alert(error.message);
         });
 
         this.setState({ openModal: false });
-        this.setState({ isUpdated: true })
+        this.setState({ isUpdated: true });
+
     }
 
     render() {
-
+       
         return (
             <div className="CardSaldo">
                 <img className="imgSaldo" alt='imgSaldo' src={CashVector} />
