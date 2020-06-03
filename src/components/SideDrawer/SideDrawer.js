@@ -25,7 +25,7 @@ const sideDrawer = props => {
                     <img src={movimientosLogo} alt=""></img>
                     Movimientos
                 </Link>
-                <Link to="/niños">
+                <Link to="/childrens">
                     <img src={niñosLogo} alt=""></img>
                     Niños
                 </Link>
