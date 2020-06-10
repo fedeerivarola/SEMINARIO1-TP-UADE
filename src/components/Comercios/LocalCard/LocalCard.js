@@ -7,7 +7,7 @@ const localCard = props => {
             <div className="HeaderImg">
                 <img src={props.data.img} alt=""></img>
             </div>
-            <p>{props.data.name}</p>
+            <h1>{props.data.name}</h1>
             <p>{props.data.address}</p>
             <p>{props.data.type}</p>
             <p>{props.data.time}</p>

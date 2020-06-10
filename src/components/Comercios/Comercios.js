@@ -43,6 +43,34 @@ class Comercios extends React.Component {
         time: "10 a 22hs",
         img: img1
       },
+      {
+        name: "La tiendita",
+        address: "Av. San Juan 642",
+        type: "Kiosco",
+        time: "10 a 22hs",
+        img: img1
+      },
+      {
+        name: "La tiendita",
+        address: "Av. San Juan 642",
+        type: "Kiosco",
+        time: "10 a 22hs",
+        img: img1
+      },
+      {
+        name: "La tiendita",
+        address: "Av. San Juan 642",
+        type: "Kiosco",
+        time: "10 a 22hs",
+        img: img1
+      },
+      {
+        name: "La tiendita",
+        address: "Av. San Juan 642",
+        type: "Kiosco",
+        time: "10 a 22hs",
+        img: img1
+      },
     ],
   };
 
