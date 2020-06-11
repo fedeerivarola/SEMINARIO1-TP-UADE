@@ -41,7 +41,7 @@ class createUser extends React.Component {
 
     render() {
         return (
-            <div className="Background">
+            <div>
                 <div className="CreateUser">
                     <div className="CardHeader" />
                     <div className="CardContent">
@@ -60,6 +60,8 @@ class createUser extends React.Component {
                         </form>
                     </div>
                 </div>
+                <div className="Background"></div>
+                <div className="Background2"></div>
             </div>
         );
     }

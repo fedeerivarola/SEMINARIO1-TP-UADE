@@ -40,7 +40,7 @@ class Login extends React.Component {
     }
 
     registrarse = () => {
-        this.props.history.push({ pathname: "/registrarse", state: this.state });
+        this.props.history.push({ pathname: "/register", state: this.state });
     }
 
     render() {
