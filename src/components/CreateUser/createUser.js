@@ -2,6 +2,8 @@ import React from 'react';
 import './createUser.css';
 import { auth } from '../../helpers/auth';
 import { dbPadres } from '../../services/firebase';
+import SelectorGenero from '../Selector/SelectorGenero';
+import Logo from '../../assets/logo.png';
 
 
 class createUser extends React.Component {
@@ -72,7 +74,9 @@ class createUser extends React.Component {
         return (
             <div>
                 <div className="CreateUser">
-                    <div className="CardHeader" />
+                    <div className="CardHeader" >
+                        <img src={Logo} alt="Logo" />  
+                    </div>
                     <div className="CardContent">
                         <form className="CreateForm" onSubmit={this.submitHandler}>
                             <p>Email</p>
@@ -87,6 +91,8 @@ class createUser extends React.Component {
                                     <span style={{ color: "red" }}>Error:{this.state.signupMessage}</span>
                                 </div>
                             }
+                            <p>Genero</p>
+                            <SelectorGenero/>
                             <button type="submit">REGISTRARSE</button>
                         </form>
                     </div>
