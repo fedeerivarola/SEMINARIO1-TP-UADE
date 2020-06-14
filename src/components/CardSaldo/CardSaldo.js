@@ -95,21 +95,28 @@ class CardSaldo extends React.Component {
 
         return (
             <div className="CardSaldo">
-                <img className="imgSaldo" alt='imgSaldo' src={CashVector} />
+                
                 <div>
-                    <List dense className="SaldoListHijos">
-                        <div className="title_SaldoListHijos"><p>Saldo asignado</p></div>
-                        <div className="SaldoListItemHijos">
-                            {
-                                this.state.hijos.map((value) => {
-                                    return this.renderList(value);
-                                })
-                            }
-                        </div>
-                    </List>
+                    
+                        {
+                            this.state.hijos.length > 0 ? (
+                                <List dense className="SaldoListHijos">
+                                    <div className="title_SaldoListHijos"><p>Saldo asignado</p></div>
+                                <div className="SaldoListItemHijos">
+                                    {
+                                        this.state.hijos.map((value) => {
+                                            return this.renderList(value);
+                                        })
+                                    }
+                                </div>
+                                </List>
+                            ) : (<div style={{allign : "center"}}>
+                                <p>Aun no hay hijos</p>
+                            </div>)
+                        }
                     <button className="btnSaldo" onClick={this.handleOpen}><img className="imgBtn" alt='imgSumarSaldo' src={masCashVector} />Añadir fondos</button>
                 </div>
-                
+
 
                 <Modal className="modal"
                     open={this.state.openModal}

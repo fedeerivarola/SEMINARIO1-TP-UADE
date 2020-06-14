@@ -50,7 +50,7 @@ class Layout extends React.Component {
                         hijosRef.get()
                             .then(querySnapshot => {
                                 if (querySnapshot.docs.length === 0) {
-                                    this.setState({ loading: false });
+                                    this.setState({ loading: false, hijos:[] });
                                 } else {
                                     querySnapshot.forEach(doc => {
                                         docs.push(doc.data());
