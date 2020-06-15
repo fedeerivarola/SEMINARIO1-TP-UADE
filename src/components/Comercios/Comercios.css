@@ -1,22 +1,32 @@
 .LocalList{
     width: auto;
-    height: auto;
+    
     display: flex;
     align-items: flex-start;
     justify-content: center;
     flex-wrap: wrap;
-    height: auto;
+    height: 88%;
     overflow-y: scroll;
     padding-left: 4rem;
     padding-right: 4rem;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    
+    
 
 }
 
+.LocalSearch input{
+    margin: 0;
+    width: 23rem;
+    border-radius: 0.5rem;
+    border: 1px solid gainsboro;
+    color: gray;
+}
+.LocalSearch input::placeholder{
+    color:lightgray;;
+}
 
 .LocalSearch{
-    height: 6rem;
+    height: 12%;
     width: auto;
     display: flex;
     align-items: center;

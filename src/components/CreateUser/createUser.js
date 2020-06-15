@@ -2,6 +2,8 @@ import React from 'react';
 import './createUser.css';
 import { auth } from '../../helpers/auth';
 import { dbPadres } from '../../services/firebase';
+import SelectorGenero from '../Selector/SelectorGenero';
+import Logo from '../../assets/logo.png';
 
 
 class createUser extends React.Component {
@@ -15,6 +17,7 @@ class createUser extends React.Component {
             signupMessage: null
         };
 
+        localStorage.setItem("genero_seleccionado","Nulo");
 
         this.userInputHandler = this.userInputHandler.bind(this);
         this.nameInputHandler = this.nameInputHandler.bind(this);
@@ -42,37 +45,44 @@ class createUser extends React.Component {
     }
 
     submitHandler = (e) => {
-       
-        e.preventDefault()
+        const gen = localStorage.getItem("genero_seleccionado");
+        if (gen != "Nulo") {
+            e.preventDefault()
 
-        let dataPadre = {
-            username: this.state.username,
-            name: this.state.name
-            };
-        console.log(dataPadre);
-        
-        let refPadre = dbPadres.doc(this.state.username);
+            let dataPadre = {
+                username: this.state.username,
+                name: this.state.name,
+                genero : gen
+                };
+            console.log(dataPadre);
+            
+            let refPadre = dbPadres.doc(this.state.username);
 
-        refPadre.set({ 
-            mail: this.state.username,
-            nombre: this.state.name,
-            saldo: 0 }).then(() => {
-                auth(this.state.username, this.state.password)
-                .catch((error) => {
-                    this.setState({ signupMessage: error.message });
-                });
-                console.log("Se agrego" + "username: "+this.state.username +"name:"+ this.state.name);
-        }).catch(error => {
-            console.log("Error: "+error.message);
-        });   
-
+            refPadre.set({ 
+                mail: this.state.username,
+                nombre: this.state.name,
+                saldo: 0,
+                genero : gen }).then(() => {
+                    auth(this.state.username, this.state.password)
+                    .catch((error) => {
+                        this.setState({ signupMessage: error.message });
+                    });
+                    console.log("Se agrego" + "username: "+this.state.username +"name:"+ this.state.name+" -genero: "+gen);
+            }).catch(error => {
+                console.log("Error: "+error.message);
+            });   
+        } else {
+            alert("Seleccionar genero");
+        }
     }
 
     render() {
         return (
             <div>
                 <div className="CreateUser">
-                    <div className="CardHeader" />
+                    <div className="CardHeader" >
+                        <img src={Logo} alt="Logo" />  
+                    </div>
                     <div className="CardContent">
                         <form className="CreateForm" onSubmit={this.submitHandler}>
                             <p>Email</p>
@@ -87,6 +97,8 @@ class createUser extends React.Component {
                                     <span style={{ color: "red" }}>Error:{this.state.signupMessage}</span>
                                 </div>
                             }
+                            <p>Genero</p>
+                            <SelectorGenero/>
                             <button type="submit">REGISTRARSE</button>
                         </form>
                     </div>
