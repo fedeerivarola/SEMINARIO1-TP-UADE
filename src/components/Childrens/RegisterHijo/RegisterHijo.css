@@ -1,0 +1,59 @@
+.RegisterHijo {
+    height: 80%;
+    width: 30%;
+    position: absolute;
+    z-index: 5;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    background: white;
+    border-radius: 5%;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+}
+
+.formRegisterHijo {
+    height: 70%;
+    margin-top: 2rem;
+    margin-left: 2rem;
+    overflow-y: scroll;
+}
+
+
+/* Tamaño del scroll */
+
+.formRegisterHijo::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+
+/* Estilos barra (thumb) de scroll */
+
+.formRegisterHijo::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+
+.formRegisterHijo::-webkit-scrollbar-thumb:active {
+    background-color: #999999;
+    border-radius: 4px;
+}
+
+.formRegisterHijo::-webkit-scrollbar-thumb:hover {
+    background: #b3b3b3;
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Estilos track de scroll */
+
+.formRegisterHijo::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 4px;
+}
+
+.formRegisterHijo::-webkit-scrollbar-track:hover,
+.formRegisterHijo::-webkit-scrollbar-track:active {
+    background: transparent;
+}
