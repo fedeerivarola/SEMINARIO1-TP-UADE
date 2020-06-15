@@ -16,6 +16,7 @@ export const ref = firebase.database().ref()
 export const firebaseAuth = firebase.auth
 export const db = firebase.firestore()
 export const dbPadres = db.collection("padres");
+export const dbHijos = db.collection("hijos");
 export const dbMov = db.collection("movimientos");
 export const fieldValue = firebase.firestore.FieldValue
 export const avatar = firebase.storage().ref().child("profile");
