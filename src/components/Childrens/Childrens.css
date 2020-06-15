@@ -13,36 +13,6 @@
     margin-bottom: 2rem;
 }
 
-.gridContainerHijos {
-    flex-grow: 1;
-    width: 100%;
-    height: 100%;
-    z-index: 5;
-}
-
-.GridItemHijos {
-    width: 100%;
-    height: 100%;
-}
-
-.gridHijo {}
-
-.CardHijo {
-    height: 6rem;
-    width: 75px;
-    margin: 0 auto;
-    display: flex;
-}
-
-.ContentCardHijo {
-    position: relative;
-    margin: 0 auto;
-    padding: 1rem;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
 .FilaMenuBotones {
     width: 70%;
     height: 5%;
@@ -212,3 +182,16 @@
 	right:0px;
 	position:fixed;
 }
+
+.MuiTabs-indicator{
+    background-color: green;
+}
+
+/* .MuiTabs-root{
+    background-color: green;
+
+}
+
+.MuiTab-textColorPrimary{
+    color: white;
+} */

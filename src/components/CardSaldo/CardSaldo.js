@@ -82,7 +82,7 @@ class CardSaldo extends React.Component {
                 <ListItemAvatar>
                     <Avatar
                         alt={`Avatar n°${e + 1}`}
-                        src={e.img}
+                        src={e.avatar}
                     />
                 </ListItemAvatar>
                 <ListItemText id={'name-' + labelId} primary={e.nombre} />

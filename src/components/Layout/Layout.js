@@ -55,7 +55,8 @@ class Layout extends React.Component {
                                     querySnapshot.forEach(doc => {
                                         docs.push(doc.data());
                                     });
-                                    setTimeout(this.setState({ hijos: docs, loading: false }), 10000);
+                                    this.setState({ hijos: docs });
+                                    setTimeout(this.setState({  loading: false }), 5000);
                                 }
                             })
                             .catch((error) => {

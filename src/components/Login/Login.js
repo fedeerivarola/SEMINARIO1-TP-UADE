@@ -23,7 +23,7 @@ class Login extends React.Component {
         e.preventDefault()
         login(this.state.username, this.state.password)
             .catch((error) => {
-                this.setState({ loginMessage: 'Invalid username/password.' });
+                this.setState({ loginMessage: error.errorMessage });
             })
     }
 
