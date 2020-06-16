@@ -1,7 +1,6 @@
 import React from 'react';
 import './CardSaldo.css';
 import masCashVector from './masCashVector.svg'
-import CashVector from './CashVector.svg'
 import Modal from '@material-ui/core/Modal';
 import Fade from '@material-ui/core/Fade';
 import Backdrop from '@material-ui/core/Backdrop';

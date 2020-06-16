@@ -6,7 +6,7 @@ import Home from '../Home/Home'
 import SideDrawer from '../SideDrawer/SideDrawer'
 import Childrens from '../Childrens/Childrens'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import { avatar, dbPadres, firebaseAuth } from '../../services/firebase'
+import { dbPadres, firebaseAuth } from '../../services/firebase'
 import sandia from '../../assets/Cargando_sandia.gif'
 
 class Layout extends React.Component {

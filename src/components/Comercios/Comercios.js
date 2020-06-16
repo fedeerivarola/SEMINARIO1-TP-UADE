@@ -1,7 +1,6 @@
 import React from "react";
 import "./Comercios.css";
 import LocalCard from "./LocalCard/LocalCard";
-import Select from 'react-select';
 import img1 from './img/img1.jpg'
 
 class Comercios extends React.Component {

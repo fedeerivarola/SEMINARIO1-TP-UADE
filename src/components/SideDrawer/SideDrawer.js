@@ -1,6 +1,6 @@
 import React from 'react'
 import './SideDrawer.css'
-import { Route, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 //Imagenes
 import resumenLogo from '../../assets/sd-resumen.png';

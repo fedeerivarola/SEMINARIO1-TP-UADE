@@ -1,5 +1,3 @@
-
-
 .Background {
     position: fixed;
     left: 0;
@@ -8,7 +6,6 @@
     justify-content: center;
     height: 100vh;
     width: 100%;
-    
     background-image: url("../../assets/Background.jpg");
     background-color: #FBFBFB;
     background-size: cover;
@@ -27,8 +24,8 @@
     backdrop-filter: opacity(20%);
     backdrop-filter: sepia(90%);
     backdrop-filter: saturate(80%);
-    
 }
+
 .Background2 {
     position: fixed;
     left: 0;
@@ -46,7 +43,6 @@
 
 .CreateUser {
     margin: 0 auto;
-
     position: fixed;
     border: 1px solid #eee;
     box-shadow: 0 2px 3px #ccc;
@@ -59,7 +55,6 @@
     display: flex;
     box-sizing: border-box;
     flex-direction: column;
-
     top: 15%;
     right: 0;
     left: 0;
@@ -67,7 +62,7 @@
     margin-left: auto;
 }
 
-.CardHeader {
+.CardHeaderRegister {
     height: 7rem;
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
@@ -78,20 +73,59 @@
     background: linear-gradient(90deg, rgba(38, 168, 128, 1) 0%, rgba(129, 175, 83, 1) 100%);
 }
 
-
-.CardContent {
-    height: 100%;
+.CardContentRegister {
+    height: calc(100% - 10rem);
     width: auto;
     display: flex;
     justify-content: center;
     flex-direction: column;
-
+    position: absolute;
+    top: 20%;
+    right: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
 }
 
-
-.CreateForm{
+.CreateForm {
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 0 2rem;
+    /* overflow-y: scroll; */
+}
+
+/* Tamaño del scroll */
+
+.CreateForm::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+/* Estilos barra (thumb) de scroll */
+
+.CreateForm::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+
+.CreateForm::-webkit-scrollbar-thumb:active {
+    background-color: #999999;
+    border-radius: 4px;
+}
+
+.CreateForm::-webkit-scrollbar-thumb:hover {
+    background: #b3b3b3;
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos track de scroll */
+
+.CreateForm::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 4px;
+}
+
+.CreateForm::-webkit-scrollbar-track:hover, .CreateForm::-webkit-scrollbar-track:active {
+    background: transparent;
 }

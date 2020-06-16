@@ -69,7 +69,6 @@ class RegisterHijo extends React.Component {
             if (this.state.user) {
                 let newAvatar = avatar.child(`${this.state.user}.jpg`);
                 var uploadTask = newAvatar.put(this.fileInput.current.files[0]);
-                var avatarURL = null;
 
                 uploadTask.on('state_changed', function (snapshot) {
                     // Observe state change events such as progress, pause, and resume
@@ -77,12 +76,11 @@ class RegisterHijo extends React.Component {
                     var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
                     console.log('Upload is ' + progress + '% done');
                 }, function (error) {
-                    this.setState({ errorMessage: error.errorMessage });
+                    localStorage.setItem('errorMessage', error.message)
                 }, function () {
                     // Handle successful uploads on complete
                     // For instance, get the download URL: https://firebasestorage.googleapis.com/...
                     uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {
-                        console.log(downloadURL);
                         localStorage.setItem('avatarURL', downloadURL);
                     });
                 });

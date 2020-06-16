@@ -2,7 +2,6 @@ import React from 'react'
 import './Childrens.css'
 import Grid from '@material-ui/core/Grid';
 import ListCardHijos from './ListCardHijos/ListCardHijos'
-import Avatar from '@material-ui/core/Avatar';
 import { Card, CardActionArea, AppBar, Tabs, Tab, List, ListItem, ListItemIcon, Checkbox, ListItemText, RadioGroup, Radio, FormControlLabel } from '@material-ui/core';
 
 class Childrens extends React.Component {
@@ -140,7 +139,7 @@ class Childrens extends React.Component {
                         <h1 style={{ textAlign: "center" }}>{this.state.selectedHijo.nombre}</h1>
                         <form className="formProfileHijo">
                             <input type="text" placeholder="NOMBRE"></input>
-                            <input type="text" placeholder="APELLIDO"></input>
+                            
                             <input type="text" placeholder="FECHA NACIMIENTO"></input>
                             <h5>{`Saldo actual: $${this.state.selectedHijo.saldoAsignado}`}</h5>
 
