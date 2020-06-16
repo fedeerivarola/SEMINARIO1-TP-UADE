@@ -53,13 +53,13 @@ class createUser extends React.Component {
 
         if (gen !== "Nulo") {
             if (gen === 'Masculino')
-                avatarURL = 'https://previews.123rf.com/images/yupiramos/yupiramos1805/yupiramos180515118/101455452-cute-father-with-beard-avatar-character-vector-illustration-design.jpg';
+                avatarURL = 'https://firebasestorage.googleapis.com/v0/b/seminario-tp.appspot.com/o/assets%2Fpapa.jfif?alt=media&token=3f5f6906-b61e-40fa-a2f8-cbdd2332f5a2';
             else
-                avatarURL = 'https://images.assetsdelivery.com/compings_v2/yupiramos/yupiramos1609/yupiramos160912725.jpg';
+                avatarURL = 'https://firebasestorage.googleapis.com/v0/b/seminario-tp.appspot.com/o/assets%2Fmama.jfif?alt=media&token=b8d9e586-94fe-4122-b817-4d152da5443d';
 
             let dataPadre = {
-                username: this.state.username,
-                name: this.state.name,
+                mail: this.state.username,
+                nombre: this.state.name,
                 genero: gen,
                 saldo: 0,
                 profilePic: avatarURL

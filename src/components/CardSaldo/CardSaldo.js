@@ -49,7 +49,7 @@ class CardSaldo extends React.Component {
         console.log(`a ver q hay aca ${fieldValue.serverTimestamp()}`);
         let movimiento = {
             desc: "Recarga de saldo",
-            name: this.state.padre.nombre,
+            nombre: this.state.padre.nombre,
             saldo: this.state.sumarSaldo,
             gasto: "0",
             tipo: "recarga",

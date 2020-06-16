@@ -12,7 +12,7 @@ class Navbar extends React.Component {
         this.state = {
             user: props.user,
             padre: props.padre,
-            imgProfile: props.proflePic
+            imgProfile: props.profile
         }
     }
 

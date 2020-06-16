@@ -21,42 +21,49 @@ class RegisterHijo extends React.Component {
         if (this.state.user) {
             if (this.state.nombre) {
                 if (this.state.edad) {
-                    if(localStorage.getItem('avatarURL') && (this.fileInput.current.files[0])){
-
-                    
-                    let celiac, diabetic;
-
-                    this.state.esCeliaco === "si" ? celiac = true : celiac = false;
-                    this.state.esDiabetico === "si" ? diabetic = true : diabetic = false;
+                    if ((localStorage.getItem('avatarURL') && this.fileInput.current.files[0]) || (!localStorage.getItem('avatarURL') && !this.fileInput.current.files[0])) {
 
 
-                    let newHijo = {
-                        nombre: this.state.nombre,
-                        user: this.state.user,
-                        edad: this.state.edad,
-                        esCeliaco: celiac,
-                        esDiabetico: diabetic,
-                        padre: this.state.padre.mail,
-                        saldoAsignado: 0,
-                        avatar: localStorage.getItem('avatarURL')
+                        let celiac, diabetic;
+
+                        this.state.esCeliaco === "si" ? celiac = true : celiac = false;
+                        this.state.esDiabetico === "si" ? diabetic = true : diabetic = false;
+
+
+                        let newHijo = {
+                            nombre: this.state.nombre,
+                            user: this.state.user,
+                            edad: this.state.edad,
+                            esCeliaco: celiac,
+                            esDiabetico: diabetic,
+                            padre: this.state.padre.mail,
+                            saldoAsignado: 0,
+                            avatar: localStorage.getItem('avatarURL')
+                        }
+
+                        localStorage.removeItem('avatarURL');
+
+                        console.log(newHijo);
+                        let refHijos = dbPadres.doc(this.state.padre.mail).collection("hijos");
+
+                        refHijos.doc(newHijo.user).set(newHijo)
+                            .then(() => {
+                                dbHijos.doc(newHijo.user).set(newHijo)
+                                    .then(() => {
+                                        this.props.newHijo(newHijo);
+                                    })
+                                    .catch((error) => { this.setState({ errorMessage: error }) })
+                            })
+                            .catch((error) => {
+                                console.log(error);
+                                this.setState({ errorMessage: error });
+                            })
+                    } else if (this.fileInput.current.files[0]) {
+                        this.setState({ errorMessage: "Aun estamos cargando la imagen :( vuelva a intentar" });
+                    } else if (localStorage.getItem('avatarURL')){
+                        localStorage.removeItem('avatarURL');
+                        this.setState({ errorMessage: "Algo salio mal :( vuelva a intentar" });
                     }
-
-                    console.log(newHijo);
-                    let refHijos = dbPadres.doc(this.state.padre.mail).collection("hijos");
-
-                    refHijos.doc(newHijo.user).set(newHijo)
-                        .then(() => {
-                            dbHijos.doc(newHijo.user).set(newHijo)
-                                .then(() => {
-                                    console.log("se registro el hijo, hay qe meter un push a la pagina aca");
-                                })
-                                .catch((error) => { this.setState({ errorMessage: error }) })
-                        })
-                        .catch((error) => {
-                            console.log(error);
-                            this.setState({ errorMessage: error });
-                        })
-                    } else {this.setState({ errorMessage: "Aun estamos cargando la imagen :( vuelva a intentar" });}
                 } else { this.setState({ errorMessage: "Debe ingresar una edad" }); }
             } else { this.setState({ errorMessage: "Debe ingresar un nombre" }); }
         } else { this.setState({ errorMessage: "Debe ingresar un usuario" }); }

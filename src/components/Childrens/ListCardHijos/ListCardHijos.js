@@ -16,6 +16,8 @@ class ListCardHijos extends React.Component {
             openModal: false
         }
 
+        this.handleNewHijo = this.handleNewHijo.bind(this);
+
     }
 
     handleOpenRegisterHijo = () => {
@@ -24,6 +26,14 @@ class ListCardHijos extends React.Component {
 
     handleCloseRegisterHijo = () => {
         this.setState({ openModal: false });
+    };
+
+    handleNewHijo = (value) => {
+        console.log(value);
+        let newHijos = []
+        newHijos = this.state.hijos;
+        newHijos.push(value);
+        this.setState({hijos: newHijos, openModal: false });
     };
 
     render() {
@@ -74,7 +84,7 @@ class ListCardHijos extends React.Component {
                 >
                     <Fade in={this.state.openModal}>
                         <div>
-                            <RegisterHijo padreRH={this.state.padre}/>
+                            <RegisterHijo padreRH={this.state.padre} newHijo={this.handleNewHijo}/>
                         </div>
                     </Fade>
                 </Modal>

@@ -140,7 +140,7 @@ class Childrens extends React.Component {
                         <form className="formProfileHijo">
                             <input type="text" placeholder="NOMBRE"></input>
                             
-                            <input type="text" placeholder="FECHA NACIMIENTO"></input>
+                            <input type="text" placeholder="EDAD"></input>
                             <h5>{`Saldo actual: $${this.state.selectedHijo.saldoAsignado}`}</h5>
 
                         </form>
