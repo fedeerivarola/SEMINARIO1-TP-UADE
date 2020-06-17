@@ -23,6 +23,7 @@ class Childrens extends React.Component {
         }
 
         this.handleSelectedHijo = this.handleSelectedHijo.bind(this);
+        this.handleSelectedMorfi = this.handleSelectedMorfi.bind(this);
     }
 
     componentDidMount() {
@@ -36,6 +37,10 @@ class Childrens extends React.Component {
 
     handleSelectedHijo = (value) => {
         this.setState({ selectedHijo: value });
+    }
+
+    handleSelectedMorfi = (value) => {
+        console.log(value);
     }
 
     renderOpciones() {
@@ -57,26 +62,28 @@ class Childrens extends React.Component {
 
     renderMenu() {
 
-        if (this.state.view === 'ALIMENTOS') {
-            return (<AlimentosMenu />);
-        }
         if (this.state.view === 'LOCALES') {
             return (<LocalesMenu />);
         }
-        if (this.state.view === 'LIMITES') {
+
+        if (this.state.selectedHijo) {
+
+            if (this.state.view === 'ALIMENTOS') {
+                return (<AlimentosMenu selectMorfi={this.handleSelectedMorfi} hijoAM={this.state.selectedHijo} />);
+            }
+
+            if (this.state.view === 'PERFIL') {
+                return (<ProfileMenu selectedHijo={this.state.selectedHijo} />);
+            }
+
             if (this.state.selectedHijo) {
                 return (<LimitesMenu hijoLM={this.state.selectedHijo} padreLM={this.state.padre} />);
-            } else {
-                return (<div>DEBE SELECCIONAR UN HIJO</div>);
             }
+
+        } else {
+            return (<div>DEBE SELECCIONAR UN HIJO</div>);
         }
-        if (this.state.view === 'PERFIL') {
-            if (this.state.selectedHijo) {
-                return (<ProfileMenu selectedHijo={this.state.selectedHijo} />);
-            } else {
-                return (<div>DEBE SELECCIONAR UN HIJO</div>);
-            }
-        }
+
     }
 
     render() {
@@ -90,7 +97,7 @@ class Childrens extends React.Component {
                         <Tabs value={this.state.view} indicatorColor={"white"} onChange={this.handleChange} centered>
                             <Tab value={'ALIMENTOS'} label="ALIMENTOS" id={`simple-tab-${0}`} />
                             <Tab value={'LOCALES'} label="LOCALES" id={`simple-tab-${1}`} />
-                            <Tab value={'LIMITES'} label="LIMITES" id={`simple-tab-${2}`} />
+                            <Tab value={'LIMITES'} label="ASIGNAR SALDO" id={`simple-tab-${2}`} />
                             <Tab value={'PERFIL'} label="PERFIL" id={`simple-tab-${3}`} />
                         </Tabs>
                     </AppBar>

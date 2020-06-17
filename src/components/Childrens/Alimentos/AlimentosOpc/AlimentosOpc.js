@@ -33,7 +33,7 @@ const AlimentosOpc = props => {
             </div>
             <div className="RadioAlimentos">
                 <RadioGroup className="RadioGroupAlimentos">
-                    <FormControlLabel value="Permitir" control={<Radio />} label="Permitir seleccion" />
+                    <FormControlLabel value="Permitir" control={<Radio checked={true}/>} label="Permitir seleccion" />
                     {/* <FormControlLabel value="Restringir" control={<Radio />} label="Restringir seleccion" /> */}
                 </RadioGroup>
             </div>

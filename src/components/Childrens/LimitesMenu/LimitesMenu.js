@@ -1,6 +1,6 @@
 import React from 'react';
 import './LimitesMenu.css';
-import { dbPadres, dbHijos, dbMov, fieldValue } from '../../../services/firebase';
+import { dbPadres, dbMov, fieldValue } from '../../../services/firebase';
 
 
 class LimitesMenu extends React.Component {
