@@ -14,6 +14,7 @@ class Navbar extends React.Component {
             padre: props.padre,
             imgProfile: props.profile
         }
+
     }
 
     render() {

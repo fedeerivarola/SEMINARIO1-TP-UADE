@@ -21,7 +21,7 @@ class ListHistory extends React.Component {
             profile: props.profileLH,
             selectedOption: "todo",
             loading: true,
-            historial: [],
+            historial: props.historial,
             error: null
         }
     }
@@ -63,16 +63,14 @@ class ListHistory extends React.Component {
     }
 
     renderList = (e) => {
-        console.log(e)
-
         let hijos = [];
         hijos = this.state.hijos;
         let img;
 
         for (let index = 0; index < hijos.length; index++) {
             if (e.uid === hijos[index].uid) {
-                 img = hijos[index].img;
-            } else if (e.uid === this.state.user.userEmail){
+                img = hijos[index].img;
+            } else if (e.uid === this.state.user.userEmail) {
                 img = this.state.profile;
             }
 
@@ -119,25 +117,23 @@ class ListHistory extends React.Component {
         if (this.state.loading === true) {
             return (<img className="cargandoList" src={sandia} alt="cargando"></img>)
         } else if (this.state.loading !== true) {
-            if (this.state.error) {
-                return (<div>{this.state.error}</div>);
 
-            } else {
-                return (
-                    <div>
-                        <List dense className="ListHistory">
-                            <div className="title">
-                                <h2>Ultimos movimientos</h2>
-                                <div className="unido">
-                                    <p>Filtrar por:</p>
-                                    <Select className="select1"
-                                        options={options}
-                                        minMenuHeight={15}
-                                        onChange={(event) => this.handleChange(event)}
-                                        placeholder="Todos"
-                                    />
-                                </div>
+            return (
+                <div>
+                    <List dense className="ListHistory">
+                        <div className="title">
+                            <h2>Ultimos movimientos</h2>
+                            <div className="unido">
+                                <p>Filtrar por:</p>
+                                <Select className="select1"
+                                    options={options}
+                                    minMenuHeight={15}
+                                    onChange={(event) => this.handleChange(event)}
+                                    placeholder="Todos"
+                                />
                             </div>
+                        </div>
+                        {this.state.error ? <div>{this.state.error}</div> :
                             <div className="itemsList">
                                 {
                                     filteredMovements.map((value) => {
@@ -145,10 +141,11 @@ class ListHistory extends React.Component {
                                     })
                                 }
                             </div>
-                        </List>
-                    </div>
-                );
-            }
+                        }
+                    </List>
+                </div>
+            );
+
         }
     }
 }

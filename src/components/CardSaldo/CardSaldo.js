@@ -62,7 +62,8 @@ class CardSaldo extends React.Component {
 
         refPadre.update({ saldo: nuevoSaldo }).then(() => {
             let nuevoMovimiento = dbMov.doc(this.state.user.userEmail).collection("historial").doc();
-            nuevoMovimiento.set(movimiento)
+            nuevoMovimiento.set(movimiento);
+            this.props.newMovimiento(nuevoMovimiento);
         }).catch(error => {
             this.setState({ error: error.message });
             alert(error.message);
@@ -109,8 +110,9 @@ class CardSaldo extends React.Component {
                                     }
                                 </div>
                                 </List>
-                            ) : (<div style={{allign : "center"}}>
-                                <p>Aun no hay hijos</p>
+                            ) : (<div className="SaldoListItemHijos">
+                                <p>     Aun no haz registrado hijos</p>
+                                <p>Dirigase a la seccion de Niños para ello.</p>
                             </div>)
                         }
                     <button className="btnSaldo" onClick={this.handleOpen}><img className="imgBtn" alt='imgSumarSaldo' src={masCashVector} />Añadir fondos</button>
