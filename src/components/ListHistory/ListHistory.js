@@ -31,7 +31,7 @@ class ListHistory extends React.Component {
         let docRef = dbMov.doc(this.state.user.userEmail).collection("historial");
         let docs = [];
 
-        docRef.get()
+        docRef.orderBy("time", "desc").get()
             .then(querySnapshot => {
                 if (querySnapshot.docs.length === 0) {
                     this.setState({ loading: false, error: 'Aun no hay movimientos' });
