@@ -46,7 +46,6 @@ class CardSaldo extends React.Component {
     }
 
     submitSaldo = () => {
-        console.log(`a ver q hay aca ${fieldValue.serverTimestamp()}`);
         let movimiento = {
             desc: "Recarga de saldo",
             nombre: this.state.padre.nombre,

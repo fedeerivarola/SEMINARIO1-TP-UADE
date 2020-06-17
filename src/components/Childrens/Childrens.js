@@ -2,6 +2,7 @@ import React from 'react'
 import './Childrens.css'
 import Grid from '@material-ui/core/Grid';
 import ListCardHijos from './ListCardHijos/ListCardHijos'
+import LimitesMenu from './LimitesMenu/LimitesMenu'
 import { Card, CardActionArea, AppBar, Tabs, Tab, List, ListItem, ListItemIcon, Checkbox, ListItemText, RadioGroup, Radio, FormControlLabel } from '@material-ui/core';
 
 class Childrens extends React.Component {
@@ -74,7 +75,7 @@ class Childrens extends React.Component {
             return <div>LOCALES</div>
         }
         if (this.state.view === 'LIMITES') {
-            return <div>LIMITES</div>
+            return <div><LimitesMenu hijoLM={this.state.selectedHijo} padreLM={this.state.padre}/></div>
         }
         if (this.state.view === 'PERFIL') {
             return null
@@ -127,7 +128,7 @@ class Childrens extends React.Component {
             </div>)
         }
         if (this.state.view === 'LIMITES') {
-            return <div>LIMITES</div>
+            return null
         }
         if (this.state.view === 'PERFIL') {
             if (this.state.selectedHijo) {
