@@ -1,6 +1,6 @@
 import React from 'react';
 import './LimitesMenu.css';
-import { dbPadres, dbMov, fieldValue } from '../../../services/firebase';
+import { dbPadres, dbHijos, dbMov, fieldValue } from '../../../services/firebase';
 
 
 class LimitesMenu extends React.Component {
@@ -32,13 +32,19 @@ class LimitesMenu extends React.Component {
             }
 
             let refPadre = dbPadres.doc(this.state.padre.mail);
+            let refHijo = dbPadres.doc(this.state.padre.mail).collection("hijos").doc(this.state.hijo.user);
             let padre = this.state.padre;
+            let hijo = this.state.hijo;
+
             padre.saldo = nuevoSaldo;
+            hijo.saldoAsignado = this.state.asignarSaldo;
 
             refPadre.update({ saldo: nuevoSaldo }).then(() => {
                 let nuevoMovimiento = dbMov.doc(this.state.padre.mail).collection("historial").doc();
-                nuevoMovimiento.set(movimiento);
-                this.setState({ padre });
+                nuevoMovimiento.set(movimiento).then( () => {
+                    refHijo.update({saldoAsignado: this.state.asignarSaldo});
+                    this.setState({ padre, hijo });
+                });
             }).catch(error => {
                 this.setState({ error: error.message });
                 alert(error.message);
@@ -55,28 +61,34 @@ class LimitesMenu extends React.Component {
 
     render() {
 
+        if(this.state.hijo){
 
-        return (
-            <div className="LimitesMenu">
-                <div className="LimitesLeft">
-                    <img style={{ marginTop: '10px', width: '5rem', height: '5rem', objectFit: 'cover' }} src={this.state.padre.profilePic} alt={`limite-${this.state.padre.nombre}`} />
-                    <p>Credito en cuenta de padre: </p>
-                    <p>$ {this.state.padre.saldo}</p>
+            return (
+                <div className="LimitesMenu">
+                    <div className="LimitesLeft">
+                        <img style={{ marginTop: '10px', width: '5rem', height: '5rem', objectFit: 'cover' }} src={this.state.padre.profilePic} alt={`limite-${this.state.padre.nombre}`} />
+                        <p>Credito en cuenta de padre: </p>
+                        <p>$ {this.state.padre.saldo}</p>
+                    </div>
+                    <div className="LimitesRight">
+                        <img style={{ marginTop: '10px', width: '5rem', height: '5rem', objectFit: 'cover' }} src={this.state.hijo.avatar} alt={`limite-${this.state.hijo.nombre}`} />
+                        <p><b>Saldo actual: ${this.state.hijo.saldoAsignado}</b></p>
+                        <p>¿ Cuanto deseas asignarle a {this.state.hijo.nombre} ?</p>
+                        <input type="number" placeholder="Saldo a asignar" onChange={(event) => this.handleInputSaldo(event)} />
+                        <button onClick={() => { this.submitAsignada() }}>Asignar Saldo</button>
+                        {
+                            this.state.error &&
+                            <div className="alert alert-danger" role="alert">
+                                <span style={{ color: "red" }}>Ups! {this.state.error}</span>
+                            </div>
+                        }
+                    </div>
                 </div>
-                <div className="LimitesRight">
-                    <img style={{ marginTop: '10px', width: '5rem', height: '5rem', objectFit: 'cover' }} src={this.state.hijo.avatar} alt={`limite-${this.state.hijo.nombre}`} />
-                    <p>¿ Cuanto deseas asignarle a {this.state.hijo.nombre} ?</p>
-                    <input type="number" placeholder="Saldo a asignar" onChange={(event) => this.handleInputSaldo(event)} />
-                    <button onClick={() => { this.submitAsignada() }}>Asignar Saldo</button>
-                    {
-                        this.state.error &&
-                        <div className="alert alert-danger" role="alert">
-                            <span style={{ color: "red" }}>Ups! {this.state.error}</span>
-                        </div>
-                    }
-                </div>
-            </div>
-        );
+            );
+
+        } else {
+            return(<div className="LimitesMenu">Antes seleccione el hijo al que quiere asignar, por favor.</div>);
+        }
     }
 }
 
