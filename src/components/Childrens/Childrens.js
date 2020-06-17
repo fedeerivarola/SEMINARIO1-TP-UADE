@@ -138,9 +138,8 @@ class Childrens extends React.Component {
                         </div>
                         <h1 style={{ textAlign: "center" }}>{this.state.selectedHijo.nombre}</h1>
                         <form className="formProfileHijo">
-                            <input type="text" placeholder="NOMBRE"></input>
-                            
-                            <input type="text" placeholder="EDAD"></input>
+                            <input type="text" placeholder={`Nombre: ${this.state.selectedHijo.nombre}`}></input>
+                            <input type="text" placeholder={`Edad: ${this.state.selectedHijo.edad}`}></input>
                             <h5>{`Saldo actual: $${this.state.selectedHijo.saldoAsignado}`}</h5>
 
                         </form>
@@ -157,7 +156,7 @@ class Childrens extends React.Component {
         return (
             <div className="childrensContainer">
                 <div className="FilaHijos">
-                    <ListCardHijos padreLHC={this.state.padre} hijosLCH={this.state.hijos} selectHijo={this.handleSelectedHijo} />
+                    <ListCardHijos padreLHC={this.state.padre} hijosLCH={this.state.hijos} selectedHijo={this.state.selectedHijo} selectHijo={this.handleSelectedHijo} />
                 </div>
                 <div className="FilaMenuBotones">
                     <AppBar color="transparent" position="static">

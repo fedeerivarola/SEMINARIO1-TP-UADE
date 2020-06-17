@@ -12,11 +12,12 @@ class ListCardHijos extends React.Component {
         this.state = {
             hijos: props.hijosLCH,
             padre: props.padreLHC,
-            selectedHijo: null,
+            selectedHijo: props.selectedHijo,
             openModal: false
         }
 
         this.handleNewHijo = this.handleNewHijo.bind(this);
+        this.clickHijo = this.clickHijo.bind(this);
 
     }
 
@@ -33,8 +34,14 @@ class ListCardHijos extends React.Component {
         let newHijos = []
         newHijos = this.state.hijos;
         newHijos.push(value);
-        this.setState({hijos: newHijos, openModal: false });
+        this.setState({ hijos: newHijos, openModal: false });
     };
+
+    clickHijo = (value) => {
+        console.log(value)
+        this.props.selectHijo(value)
+        this.setState({ selectedHijo: value });
+    }
 
     render() {
         return (
@@ -45,13 +52,14 @@ class ListCardHijos extends React.Component {
                             {this.state.hijos.map((value) => (
                                 <Grid className="gridHijo" key={value.nombre} item>
                                     <Card className="CardHijo" elevation={3}>
-                                        <CardActionArea className="CardHijo" onClick={() => { this.props.selectHijo(value) }}>
+                                        <CardActionArea className="CardHijo" onClick={() => {this.clickHijo(value)}}>
                                             <div className="ContentCardHijo">
                                                 <Avatar
                                                     alt={`Avatar n°${value.nombre + 1}`}
                                                     src={value.avatar}
                                                 />
                                                 <b>{value.nombre}</b>
+                                                {value === this.state.selectedHijo ? <p style={{fontSize: "8px"}}>SELECCIONADO</p> : null}
                                             </div>
                                         </CardActionArea>
                                     </Card>
@@ -84,7 +92,7 @@ class ListCardHijos extends React.Component {
                 >
                     <Fade in={this.state.openModal}>
                         <div>
-                            <RegisterHijo padreRH={this.state.padre} newHijo={this.handleNewHijo}/>
+                            <RegisterHijo padreRH={this.state.padre} newHijo={this.handleNewHijo} />
                         </div>
                     </Fade>
                 </Modal>
