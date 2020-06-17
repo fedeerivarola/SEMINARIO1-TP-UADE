@@ -1,0 +1,22 @@
+.OpcAlimentos {
+    width: 20rem;
+    height: 16rem;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    opacity: 1;
+    border-radius: 12px;
+}
+.RadioAlimentos{
+    width: 20rem;
+    height: 8rem;
+    margin-top: 2rem;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    opacity: 1;
+    border-radius: 12px;
+}
+.RadioGroupAlimentos{
+    width: 100%;
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
