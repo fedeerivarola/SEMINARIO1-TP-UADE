@@ -1,14 +1,19 @@
 .LimitesMenu {
     display: flex;
     flex-direction: row;
-    position: absolute;
-    padding: 0 2rem;
+    position: fixed;
+
     justify-content: center;
+
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    padding: 0 2rem;
+
 }
 
 .LimitesLeft{
     
-        
     display: flex;
     flex-direction: column;
     justify-content: center;

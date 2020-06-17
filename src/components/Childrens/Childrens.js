@@ -46,7 +46,7 @@ class Childrens extends React.Component {
             return <div>LOCALES</div>
         }
         if (this.state.view === 'LIMITES') {
-            return <div><LimitesMenu hijoLM={this.state.selectedHijo} padreLM={this.state.padre} /></div>
+            return null
         }
         if (this.state.view === 'PERFIL') {
             return null
@@ -64,7 +64,11 @@ class Childrens extends React.Component {
             return (<LocalesMenu />);
         }
         if (this.state.view === 'LIMITES') {
-            return null
+            if (this.state.selectedHijo) {
+                return (<LimitesMenu hijoLM={this.state.selectedHijo} padreLM={this.state.padre} />);
+            } else {
+                return (<div>DEBE SELECCIONAR UN HIJO</div>);
+            }
         }
         if (this.state.view === 'PERFIL') {
             if (this.state.selectedHijo) {
