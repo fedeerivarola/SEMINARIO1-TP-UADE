@@ -8,6 +8,7 @@ import Childrens from '../Childrens/Childrens'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { dbPadres, firebaseAuth } from '../../services/firebase'
 import sandia from '../../assets/Cargando_sandia.gif'
+import ReportMaker from '../ReportMaker/ReportMaker'
 
 class Layout extends React.Component {
 
@@ -93,7 +94,7 @@ class Layout extends React.Component {
                     <div className="Content">
                         <Route exact path="/home" render={() => <Home userHome={this.state.user} padreHome={this.state.padre} hijosHome={this.state.hijos} profileHome={this.state.profile}/>} />
                         <Route exact path="/childrens" render={() => <Childrens userCh={this.state.user} padreCh={this.state.padre} hijosCh={this.state.hijos}/>} />
-                        <Route exact path="/saldo" render={() => <h1>Saldos</h1>} />
+                        <Route exact path="/reportMaker" render={() => <ReportMaker/>} />
                         <Route exact path="/movimientos" render={() => <h1>Movimientos</h1>} />
                         <Route exact path="/comercios" render={() => <Comercios/>} />
                     </div>

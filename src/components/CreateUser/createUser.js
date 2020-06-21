@@ -97,10 +97,16 @@ class createUser extends React.Component {
                             <input onChange={(event) => this.nameInputHandler(event)} />
                             <p>Contraseña</p>
                             <input type="password" onChange={(event) => this.passInputHandler(event)} />
-                            <p>Genero</p>
-                            <SelectorGenero />
+                            <div class ="contenedor6">
+                                <div class="contenido6">
+                                    <p>Genero</p>
+                                </div>
+                                <div class="contenido6">
+                                    <SelectorGenero/>
+                                </div>
+                            </div>
                             <button type="submit">REGISTRARSE</button>
-                        </form>
+                        </form>     
                         {
                             this.state.signupMessage &&
                             <div className="alert alert-danger" role="alert">

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import resumenLogo from '../../assets/sd-resumen.png';
 import comercioLogo from '../../assets/sd-comercio.png';
 import niñosLogo from '../../assets/sd-niños.png';
-import saldoLogo from '../../assets/sd-saldo.png';
+import saldoReporte from '../../assets/sd-reporte.png';
 import movimientosLogo from '../../assets/sd-movimientos.png';
 
 const sideDrawer = props => {
@@ -17,9 +17,9 @@ const sideDrawer = props => {
                         <img src={resumenLogo} alt=""></img>
                         Resumen
                 </Link>
-                <Link to="/saldo">
-                    <img src={saldoLogo} alt=""></img>
-                    Saldo
+                <Link to="/reportMaker">
+                    <img src={saldoReporte} alt=""></img>
+                    Reporte
                 </Link>
                 <Link to="/movimientos">
                     <img src={movimientosLogo} alt=""></img>
