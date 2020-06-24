@@ -7,7 +7,7 @@ import resumenLogo from '../../assets/sd-resumen.png';
 import comercioLogo from '../../assets/sd-comercio.png';
 import niñosLogo from '../../assets/sd-niños.png';
 import saldoReporte from '../../assets/sd-reporte.png';
-import movimientosLogo from '../../assets/sd-movimientos.png';
+import tarjetasLogo from '../../assets/sd-tarjetas.png';
 
 const sideDrawer = props => {
     return(
@@ -21,9 +21,9 @@ const sideDrawer = props => {
                     <img src={saldoReporte} alt=""></img>
                     Reporte
                 </Link>
-                <Link to="/movimientos">
-                    <img src={movimientosLogo} alt=""></img>
-                    Movimientos
+                <Link to="/tarjetas">
+                    <img src={tarjetasLogo} alt=""></img>
+                    Tarjetas
                 </Link>
                 <Link to="/childrens">
                     <img src={niñosLogo} alt=""></img>

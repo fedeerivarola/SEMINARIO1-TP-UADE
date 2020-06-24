@@ -10,6 +10,7 @@
     "firebase": "^7.14.2",
     "moment": "^2.26.0",
     "react": "^16.13.1",
+    "react-credit-card-payment": "^0.1.3",
     "react-dom": "^16.13.1",
     "react-export-excel": "^0.5.3",
     "react-html-table-to-excel": "^2.0.0",

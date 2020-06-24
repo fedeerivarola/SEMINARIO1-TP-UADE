@@ -3,7 +3,7 @@ import './LocalCard.css'
 
 const localCard = props => {
     return(
-        <div className="LocalCard">
+        <div className="LocalCard" onClick={props.clicked}>
             <div className="HeaderImg">
                 <img src={props.data.img} alt=""></img>
             </div>

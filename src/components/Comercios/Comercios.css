@@ -1,6 +1,5 @@
 .LocalList{
     width: auto;
-    
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -9,9 +8,6 @@
     overflow-y: scroll;
     padding-left: 4rem;
     padding-right: 4rem;
-    
-    
-
 }
 
 .LocalSearch input{
