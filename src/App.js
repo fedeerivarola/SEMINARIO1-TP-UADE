@@ -6,6 +6,7 @@ import sandia from './assets/Cargando_sandia.gif'
 import Layout from './components/Layout/Layout'
 import CreateUser from './components/CreateUser/createUser'
 import { firebaseAuth } from './services/firebase/config'
+import ReportMaker from './components/ReportMaker/ReportMaker'
 
 function PrivateRoute({ component: Component, authed, ...rest }) {
   return (

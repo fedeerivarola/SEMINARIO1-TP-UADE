@@ -94,7 +94,7 @@ class Layout extends React.Component {
                     <div className="Content">
                         <Route exact path="/home" render={() => <Home userHome={this.state.user} padreHome={this.state.padre} hijosHome={this.state.hijos} profileHome={this.state.profile}/>} />
                         <Route exact path="/childrens" render={() => <Childrens userCh={this.state.user} padreCh={this.state.padre} hijosCh={this.state.hijos}/>} />
-                        <Route exact path="/reportMaker" render={() => <ReportMaker/>} />
+                        <Route exact path="/reportMaker" render={() => <ReportMaker userHome={this.state.user} padreHome={this.state.padre} hijosHome={this.state.hijos} profileHome={this.state.profile}/>} />
                         <Route exact path="/movimientos" render={() => <h1>Movimientos</h1>} />
                         <Route exact path="/comercios" render={() => <Comercios/>} />
                     </div>
