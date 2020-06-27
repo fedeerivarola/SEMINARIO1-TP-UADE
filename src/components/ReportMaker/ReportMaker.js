@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 import SelectDatePicker from "../DatePicker/DatePicker";
-import ListHistoryReport from "../ListHistoryReport/ListHistoryReport";
-import ExportExcel from './ExportExcel';
+import ExportExcel from '../ExportExcel/ExportExcel';
+import './ReportMaker.css';
 
 class ReportMaker extends React.Component {
  
@@ -19,7 +18,7 @@ class ReportMaker extends React.Component {
  
     render() {
         return (
-            <div>
+            <div className="cardFormat" >
                 <ExportExcel id="table-to-xls" userLH={this.state.user} hijosLH={this.state.hijos} profileLH={this.state.profile} historial={this.state.historial}/>
             </div>
         );

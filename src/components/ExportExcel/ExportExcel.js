@@ -1,15 +1,9 @@
-import React, { Component } from 'react'  
-import axios from 'axios';  
+import React, { Component } from 'react'
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';
-import Select from 'react-select';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import Avatar from '@material-ui/core/Avatar';
 import { dbMov } from '../../services/firebase';
 import moment from 'moment';
 import sandia from '../../assets/Cargando_sandia.gif';
+import './ExportExcel.css';
 
 export class ExportExcel extends Component {  
         constructor(props) {  
@@ -53,28 +47,29 @@ export class ExportExcel extends Component {
         if (this.state.loading === true) {
             return (<img className="cargandoList" src={sandia} alt="cargando"></img>)
         } else if (this.state.loading !== true) {
-                return (  
+                return (   
                         <div>  
-                                <table id="emp" class="table">  
+                            <div overflow="hidden" webkit-overflow-scrolling="touch" width="300px" height="100px">
+                                <table id="emp" class="table" cellspacing="10" cellpadding="10">  
                                         <thead>  
                                             <tr>  
-                                                <th>Descripcion</th>
-                                                <th>Gasto</th>
-                                                <th>Nombre</th>
-                                                <th>Saldo</th>
-                                                <th>Time</th>
-                                                <th>Tipo</th>  
+                                                <th className="thClass" align="center"><b>Descripcion</b></th >
+                                                <th className="thClass" align="center"><b>Gasto</b></th>
+                                                <th className="thClass" align="center"><b>Nombre</b></th>
+                                                <th className="thClass" align="center"><b>Saldo</b></th>
+                                                <th className="thClass" align="center"><b>Time</b></th>
+                                                <th className="thClass" align="center"><b>Tipo</b></th>  
                                             </tr>  
                                         </thead>  
                                         <tbody>              {  
                                                 this.state.historial.map((p, index) => {  
                                                         return <tr key={index}>  
-                                                                    <td >{p.desc}</td>  
-                                                                    <td >{p.gasto}</td>  
-                                                                    <td >{p.nombre}</td>  
-                                                                    <td >{p.saldo}</td>  
-                                                                    <td >{moment(p.time.toDate()).format("DD/MM/YYYY")}</td>  
-                                                                    <td >{p.tipo}</td>
+                                                                    <td className="tdClass" align="center">{p.desc}</td>  
+                                                                    <td className="tdClass" align="center">{p.gasto}</td>  
+                                                                    <td className="tdClass" align="center">{p.nombre}</td>  
+                                                                    <td className="tdClass" align="center">{p.saldo}</td>  
+                                                                    <td className="tdClass" align="center">{moment(p.time.toDate()).format("DD/MM/YYYY")}</td>  
+                                                                    <td className="tdClass" align="center">{p.tipo}</td>
                                                         </tr>  
                                                 })  
                                         }  
@@ -82,8 +77,9 @@ export class ExportExcel extends Component {
                                         </tbody>  
   
                                 </table>  
-                                <div>  
-									<ReactHTMLTableToExcel  
+                            </div>
+                                <div align="center" height="100px" width="200px">  
+									<ReactHTMLTableToExcel  height="50%" width="50%"
                                             className="btn btn-info"  
                                             table="emp"  
                                             filename="ReportExcel"  
