@@ -1,6 +1,9 @@
 {
-  "name": "alimentos-sip",
-  "version": "0.1.0",
+  "name": "foodie-kids",
+  "version": "1.0.0",
+  "engines": {
+    "node": "12.x"
+  },
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.9.14",
