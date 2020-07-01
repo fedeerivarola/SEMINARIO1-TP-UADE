@@ -2,9 +2,12 @@ import React from "react";
 import "./Comercios.css";
 import LocalCard from "./LocalCard/LocalCard";
 import img1 from './img/img1.jpg'
+import ComercioModal from './ComercioModal/ComercioModal';
 
 class Comercios extends React.Component {
   state = {
+    modalOpen: false,
+    selectedLocal: null,
     filter: '',
     comercios: [
       {
@@ -13,7 +16,8 @@ class Comercios extends React.Component {
         address: "Av. San Juan 642",
         type: "Kiosco",
         time: "10 a 22hs",
-        img: img1
+        img: img1,
+        products: [{name: "Alfajor"}]
       },
       {
         id: 1,
@@ -21,7 +25,8 @@ class Comercios extends React.Component {
         address: "Av. San Juan 642",
         type: "Kiosco",
         time: "10 a 22hs",
-        img: img1
+        img: img1,
+        products: [{name: "Alfajor"}]
       },
       {
         id: 2,
@@ -29,7 +34,8 @@ class Comercios extends React.Component {
         address: "Av. San Juan 642",
         type: "Kiosco",
         time: "10 a 22hs",
-        img: img1
+        img: img1,
+        products: [{name: "Alfajor"}]
       },
       {
         id: 3,
@@ -37,7 +43,8 @@ class Comercios extends React.Component {
         address: "Av. San Juan 642",
         type: "Kiosco",
         time: "10 a 22hs",
-        img: img1
+        img: img1,
+        products: [{name: "Alfajor"}]
       },
       {
         id: 4,
@@ -45,7 +52,8 @@ class Comercios extends React.Component {
         address: "Av. San Juan 642",
         type: "Kiosco",
         time: "10 a 22hs",
-        img: img1
+        img: img1,
+        products: [{name: "Alfajor"}]
       },
       {
         id: 5,
@@ -53,7 +61,8 @@ class Comercios extends React.Component {
         address: "Av. San Juan 642",
         type: "Kiosco",
         time: "10 a 22hs",
-        img: img1
+        img: img1,
+        products: [{name: "Alfajor"}]
       },
       {
         id: 6,
@@ -61,7 +70,8 @@ class Comercios extends React.Component {
         address: "Av. San Juan 642",
         type: "Kiosco",
         time: "10 a 22hs",
-        img: img1
+        img: img1,
+        products: [{name: "Alfajor"}]
       },
       {
         id: 7,
@@ -69,7 +79,8 @@ class Comercios extends React.Component {
         address: "Av. San Juan 642",
         type: "Kiosco",
         time: "10 a 22hs",
-        img: img1
+        img: img1,
+        products: [{name: "Alfajor"}]
       },
       {
         id: 8,
@@ -77,7 +88,8 @@ class Comercios extends React.Component {
         address: "Av. San Juan 642",
         type: "Kiosco",
         time: "10 a 22hs",
-        img: img1
+        img: img1,
+        products: [{name: "Alfajor"}]
       },
     ],
   };
@@ -87,7 +99,18 @@ class Comercios extends React.Component {
     this.setState({
         filter: e.target.value
     });
-}
+  }
+
+  handleClickLocal = (local) => {
+    this.setState({
+      modalOpen: true,
+      selectedLocal: local,
+    });
+  }
+
+  closeModal = () => {
+    this.setState({modalOpen: false})
+  } 
 
   render() {
     let showLocals = [];
@@ -102,18 +125,27 @@ class Comercios extends React.Component {
     }
     
     return (
-        <div className="Locals">       
-            <div className="LocalSearch">
-                <input
-                  placeholder="Buscar..."
-                  onChange= {(event) => this.handleChange(event)} 
-                ></input>
-            </div>
-            <div className="LocalList">
-                {showLocals.map((c) => {
-                    return <LocalCard key={c.id} data={c} />;
-                })}
-            </div>
+        <div className="Locals">    
+          <ComercioModal 
+            open={this.state.modalOpen}
+            close={this.closeModal}
+            local={this.state.selectedLocal}
+          />
+          <div className="LocalSearch">
+              <input
+                placeholder="Buscar..."
+                onChange= {(event) => this.handleChange(event)} 
+              ></input>
+          </div>
+          <div className="LocalList">
+              {showLocals.map((c) => {
+                return <LocalCard 
+                  clicked={() => this.handleClickLocal(c)}
+                  key={c.id} 
+                  data={c} 
+                />;
+              })}
+          </div>
         </div>
     );
   }

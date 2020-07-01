@@ -7,7 +7,7 @@
     background: rgb(38,168,128);
     background: linear-gradient(90deg, rgba(38,168,128,1) 0%, rgba(129,175,83,1) 100%);
     box-shadow: 0 2px 3px #ccc;
-    z-index: 8;
+    z-index: 11;
     justify-content: space-between;
     
 }
