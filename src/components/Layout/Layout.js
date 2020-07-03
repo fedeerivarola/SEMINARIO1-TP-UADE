@@ -7,7 +7,7 @@ import SideDrawer from '../SideDrawer/SideDrawer'
 import Childrens from '../Childrens/Childrens'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { dbPadres, firebaseAuth } from '../../services/firebase'
-import sandia from '../../assets/Cargando_sandia.gif'
+import sandia from '../../assets/cargando_sandia.gif'
 import ReportMaker from '../ReportMaker/ReportMaker'
 import Tarjetas from '../Tarjetas/Tarjetas'
 

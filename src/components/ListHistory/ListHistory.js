@@ -8,7 +8,7 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import { dbMov } from '../../services/firebase';
 import moment from 'moment';
-import sandia from '../../assets/Cargando_sandia.gif'
+import sandia from '../../assets/cargando_sandia.gif'
 
 class ListHistory extends React.Component {
 

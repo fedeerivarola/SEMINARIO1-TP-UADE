@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 import { dbMov } from '../../services/firebase';
 import moment from 'moment';
-import sandia from '../../assets/Cargando_sandia.gif';
+import sandia from '../../assets/cargando_sandia.gif';
 import './ExportExcel.css';
 
 export class ExportExcel extends Component {  

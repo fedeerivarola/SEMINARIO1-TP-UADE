@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import './App.css';
 import Login from './components/Login/Login'
-import sandia from './assets/Cargando_sandia.gif'
+import sandia from './assets/cargando_sandia.gif'
 import Layout from './components/Layout/Layout'
 import CreateUser from './components/CreateUser/createUser'
 import { firebaseAuth } from './services/firebase/config'
