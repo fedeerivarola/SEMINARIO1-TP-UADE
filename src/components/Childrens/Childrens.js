@@ -48,7 +48,7 @@ class Childrens extends React.Component {
             return (<AlimentosOpc />);
         }
         if (this.state.view === 'LOCALES') {
-            return <div>LOCALES</div>
+            return null
         }
         if (this.state.view === 'LIMITES') {
             return null

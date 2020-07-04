@@ -30,7 +30,6 @@ class ListCardHijos extends React.Component {
     };
 
     handleNewHijo = (value) => {
-        console.log(value);
         let newHijos = []
         newHijos = this.state.hijos;
         newHijos.push(value);
@@ -38,7 +37,6 @@ class ListCardHijos extends React.Component {
     };
 
     clickHijo = (value) => {
-        console.log(value)
         this.props.selectHijo(value)
         this.setState({ selectedHijo: value });
     }
@@ -52,14 +50,14 @@ class ListCardHijos extends React.Component {
                             {this.state.hijos.map((value) => (
                                 <Grid className="gridHijo" key={value.nombre} item>
                                     <Card className="CardHijo" elevation={3}>
-                                        <CardActionArea className="CardHijo" onClick={() => {this.clickHijo(value)}}>
+                                        <CardActionArea className="CardHijo" onClick={() => { this.clickHijo(value) }}>
                                             <div className="ContentCardHijo">
                                                 <Avatar
                                                     alt={`Avatar n°${value.nombre + 1}`}
                                                     src={value.avatar}
                                                 />
                                                 <b>{value.nombre}</b>
-                                                {value === this.state.selectedHijo ? <p style={{fontSize: "8px"}}>SELECCIONADO</p> : null}
+                                                {value === this.state.selectedHijo ? <p style={{ fontSize: "8px" }}>SELECCIONADO</p> : null}
                                             </div>
                                         </CardActionArea>
                                     </Card>
