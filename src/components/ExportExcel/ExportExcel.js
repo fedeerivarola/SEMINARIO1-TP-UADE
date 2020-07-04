@@ -49,8 +49,8 @@ export class ExportExcel extends Component {
         } else if (this.state.loading !== true) {
                 return (   
                         <div>  
-                            <div overflow="hidden" webkit-overflow-scrolling="touch" width="300px" height="100px">
-                                <table id="emp" class="table" cellspacing="10" cellpadding="10">  
+                            <div className="ExportCard" overflow="hidden" webkit-overflow-scrolling="touch" width="300px" height="100px">
+                                <table id="emp" className="Table" cellspacing="10" cellpadding="10">  
                                         <thead>  
                                             <tr>  
                                                 <th className="thClass" align="center"><b>Descripcion</b></th >

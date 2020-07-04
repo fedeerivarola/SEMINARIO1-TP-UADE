@@ -68,9 +68,12 @@
     justify-content: space-around;
     cursor: pointer;
 }
+
 .CardItem:hover{
     box-shadow: 1px 5px 20px #1a1a1a42;
 }
+
+
 
 .Selected{
     box-shadow: 0px 3px 6px #40AF62 !important;
@@ -89,12 +92,13 @@
 }
 
 .CardLogo img{
-    height: 1.2rem;
-    width: auto;
+    max-height: 4.2rem;
+    max-width: 4.2rem;
+    min-width: 3.5rem;
     object-fit: cover;
 }
 .CardLogo{
-    height: 1rem;
+    height: auto;
     width: auto;
 }
 
