@@ -1,0 +1,83 @@
+.LocalesMenu {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+
+    justify-content: center;
+    left: 15%;
+    margin: 0 auto;
+    width: 70%;
+    height: 24rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-top: 10px;
+}
+
+.CardComercios {
+    width: 100%;
+    height: 24rem;
+}
+
+.CardComercio {
+    /* height: 8rem;
+    width: 100px; */
+    padding: 2rem;
+    margin: 1 auto;
+    display: flexbox;
+    justify-content: center;
+    position: relative;
+    font-size: 12px;
+    margin-left: 35px;
+    margin-top: 15px;
+}
+
+.CardComercio img {
+    width: 100%;
+    height: 60px;
+}
+
+.BotonCardComercio {
+    width: 100%;
+    position: relative;
+    margin: 0 auto;
+    right: 0;
+    left: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+  /* Tamaño del scroll */
+  .LocalesMenu::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+   /* Estilos barra (thumb) de scroll */
+  .LocalesMenu::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+  }
+  
+  .LocalesMenu::-webkit-scrollbar-thumb:active {
+    background-color: #999999;
+    border-radius: 4px;
+  }
+  
+  .LocalesMenu::-webkit-scrollbar-thumb:hover {
+    background: #b3b3b3;
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+  }
+  
+   /* Estilos track de scroll */
+  .LocalesMenu::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 4px;
+  }
+  
+  .LocalesMenu::-webkit-scrollbar-track:hover, 
+  .LocalesMenu::-webkit-scrollbar-track:active {
+    background: transparent;
+  }
