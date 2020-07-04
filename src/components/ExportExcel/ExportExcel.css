@@ -8,3 +8,35 @@
     height: 25px;
 }
 
+.ExportCard{
+    overflow-y: scroll;
+    height: 70vh;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #c7c7c7;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a3a3a3;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #8c8c8c;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
