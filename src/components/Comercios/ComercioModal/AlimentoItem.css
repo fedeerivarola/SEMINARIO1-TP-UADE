@@ -1,0 +1,23 @@
+.AliItemCard{
+    z-index: 10000;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0px 3px 6px #00000029;
+    width: 8rem;
+    height: 8rem;
+    display: flex;
+    box-sizing: border-box;
+    margin: 1rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.ItemImg img{
+    height: 6rem;
+    width: 6rem;
+    object-fit: cover;
+
+
+}
+

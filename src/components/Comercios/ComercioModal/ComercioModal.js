@@ -1,5 +1,6 @@
 import React from 'react';
 import './ComercioModal.css';
+import AlimentoItem from './AlimentoItem';
 
 const comercioModal = (props) => {
     return(
@@ -22,9 +23,12 @@ const comercioModal = (props) => {
                             <h2>Productos</h2>
                             <h2 className="Close" onClick={props.close}>X</h2>
                         </div>
-                        {props.local.products.map((p) => {
-                            return <div>{p.name}</div>;
-                        })}
+                        <div className="ListProd">
+                            {props.productos.map((p) => {
+                                return <AlimentoItem name={p.name} img={p.img}/>
+                            })}
+                        </div>
+                        
                     </div>
                 </div>
             </div> 

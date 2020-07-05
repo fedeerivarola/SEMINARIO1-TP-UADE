@@ -9,6 +9,51 @@ class Comercios extends React.Component {
     modalOpen: false,
     selectedLocal: null,
     filter: '',
+    products: [
+      { 
+        name: "Alfajor", 
+        img: "https://images.rappi.com.ar/products/437290-1554301117.png?d=128x90&e=webp"
+      },
+      {
+        name: "Banana",
+        img: "https://img.freepik.com/foto-gratis/platano-amarillo-fresco_2829-13457.jpg?size=626&ext=jpg"
+      },
+      { 
+        name: "Gallo Barra", 
+        img: "https://walmartar.vteximg.com.br/arquivos/ids/862105-292-292/Barra-Ba%C3%B1ada-Gallo-Yogubar-Frutilla-Sin-Tacc-X-20-Gr-1-470809.jpg?v=637233700949330000"
+      },
+      { 
+        name: "Barra Arroz", 
+        img: "https://walmartar.vteximg.com.br/arquivos/ids/180221-1000-1000/0779147600593-1.jpg?v=635841456868500000"
+      },
+      {
+        name: "Yogur Frutilla",
+        img: "https://walmartar.vteximg.com.br/arquivos/ids/848493-1000-1000/0779827024428-1.jpg?v=636994049258830000"
+      },{ 
+        name: "Barra Egran", 
+        img: "https://walmartar.vteximg.com.br/arquivos/ids/180220-1000-1000/0779147600591-1.jpg?v=635841456853830000"
+      },
+      {
+        name: "Banana",
+        img: "https://img.freepik.com/foto-gratis/platano-amarillo-fresco_2829-13457.jpg?size=626&ext=jpg"
+      },
+      { 
+        name: "Gallo Barra", 
+        img: "https://walmartar.vteximg.com.br/arquivos/ids/862105-292-292/Barra-Ba%C3%B1ada-Gallo-Yogubar-Frutilla-Sin-Tacc-X-20-Gr-1-470809.jpg?v=637233700949330000"
+      },
+      { 
+        name: "Barra Arroz", 
+        img: "https://walmartar.vteximg.com.br/arquivos/ids/180221-1000-1000/0779147600593-1.jpg?v=635841456868500000"
+      },
+      {
+        name: "Yogur Frutilla",
+        img: "https://walmartar.vteximg.com.br/arquivos/ids/848493-1000-1000/0779827024428-1.jpg?v=636994049258830000"
+      },{ 
+        name: "Barra Egran", 
+        img: "https://walmartar.vteximg.com.br/arquivos/ids/180220-1000-1000/0779147600591-1.jpg?v=635841456853830000"
+      },
+      
+    ],
     comercios: [
       {
         id: 0,
@@ -17,7 +62,6 @@ class Comercios extends React.Component {
         type: "Kiosco",
         time: "10 a 22hs",
         img: img1,
-        products: [{name: "Alfajor"}]
       },
       {
         id: 1,
@@ -26,7 +70,6 @@ class Comercios extends React.Component {
         type: "Kiosco",
         time: "10 a 22hs",
         img: img1,
-        products: [{name: "Alfajor"}]
       },
       {
         id: 2,
@@ -35,7 +78,6 @@ class Comercios extends React.Component {
         type: "Kiosco",
         time: "10 a 22hs",
         img: img1,
-        products: [{name: "Alfajor"}]
       },
       {
         id: 3,
@@ -44,7 +86,6 @@ class Comercios extends React.Component {
         type: "Kiosco",
         time: "10 a 22hs",
         img: img1,
-        products: [{name: "Alfajor"}]
       },
       {
         id: 4,
@@ -53,7 +94,6 @@ class Comercios extends React.Component {
         type: "Kiosco",
         time: "10 a 22hs",
         img: img1,
-        products: [{name: "Alfajor"}]
       },
       {
         id: 5,
@@ -71,7 +111,6 @@ class Comercios extends React.Component {
         type: "Kiosco",
         time: "10 a 22hs",
         img: img1,
-        products: [{name: "Alfajor"}]
       },
       {
         id: 7,
@@ -80,7 +119,6 @@ class Comercios extends React.Component {
         type: "Kiosco",
         time: "10 a 22hs",
         img: img1,
-        products: [{name: "Alfajor"}]
       },
       {
         id: 8,
@@ -89,7 +127,6 @@ class Comercios extends React.Component {
         type: "Kiosco",
         time: "10 a 22hs",
         img: img1,
-        products: [{name: "Alfajor"}]
       },
     ],
   };
@@ -130,6 +167,7 @@ class Comercios extends React.Component {
             open={this.state.modalOpen}
             close={this.closeModal}
             local={this.state.selectedLocal}
+            productos={this.state.products}
           />
           <div className="LocalSearch">
               <input
@@ -142,7 +180,8 @@ class Comercios extends React.Component {
                 return <LocalCard 
                   clicked={() => this.handleClickLocal(c)}
                   key={c.id} 
-                  data={c} 
+                  data={c}
+                  products={this.state.products} 
                 />;
               })}
           </div>
