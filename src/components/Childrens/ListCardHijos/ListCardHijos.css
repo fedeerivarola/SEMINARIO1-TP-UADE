@@ -12,19 +12,25 @@
 }
 
 .CardHijo {
-    height: 6rem;
-    width: 75px;
+    height: 6.5rem;
+    width: 6.5rem;
     margin: 0 auto;
     display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .ContentCardHijo {
-    position: relative;
-    margin: 0 auto;
-    padding: 1rem;
-    justify-content: center;
+    display: flex;
     align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    position: relative;
     text-align: center;
+    height: 90%;
+}
+.ContentCardHijo p{
+    margin:0;
 }
 
 .modal {

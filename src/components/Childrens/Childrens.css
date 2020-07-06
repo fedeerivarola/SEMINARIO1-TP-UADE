@@ -7,17 +7,20 @@
 }
 
 .FilaHijos {
-    width: 70%;
+    width: 80%;
     height: 15%;
     margin: 0 auto;
     margin-bottom: 2rem;
 }
 
 .FilaMenuBotones {
-    width: 70%;
+    width: 80%;
     height: 5%;
     margin: 0 auto;
     margin-bottom: 1rem;
+}
+.MuiAppBar-colorTransparent {
+    border-radius: 0.5rem;
 }
 
 .BotoneraMenu {
@@ -26,7 +29,7 @@
 }
 
 .FilaMenuView {
-    width: 70%;
+    width: 82%;
     height: 70%;
     display: flex;
     margin: 0 auto;

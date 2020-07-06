@@ -93,7 +93,7 @@ class Childrens extends React.Component {
                     <ListCardHijos padreLHC={this.state.padre} hijosLCH={this.state.hijos} selectedHijo={this.state.selectedHijo} selectHijo={this.handleSelectedHijo} />
                 </div>
                 <div className="FilaMenuBotones">
-                    <AppBar color="transparent" position="static">
+                    <AppBar color="white" position="static">
                         <Tabs value={this.state.view} indicatorColor={"white"} onChange={this.handleChange} centered>
                             <Tab value={'ALIMENTOS'} label="ALIMENTOS" id={`simple-tab-${0}`} />
                             <Tab value={'LOCALES'} label="LOCALES" id={`simple-tab-${1}`} />
