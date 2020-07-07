@@ -68,7 +68,7 @@ class ListCardHijos extends React.Component {
                                     <CardActionArea className="CardHijo" onClick={this.handleOpenRegisterHijo}>
                                         <div className="ContentCardHijo">
                                             <b>+</b>
-                                            <p>Añadir hijo</p>
+                                            <p>Añadir cuenta hijo</p>
                                         </div>
                                     </CardActionArea>
                                 </Card>

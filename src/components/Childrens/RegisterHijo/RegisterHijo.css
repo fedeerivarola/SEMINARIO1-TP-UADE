@@ -1,31 +1,46 @@
 .RegisterHijo {
-    height: 75%;
+    height: 80%;
     width: 30%;
     position: absolute;
     z-index: 5;
     margin: auto auto;
     left: 0;
     right: 0;
-    top:0;
+    top: 0;
     bottom: 0;
     background: white;
     padding: 0 1rem;
     border-radius: 1rem;
-    box-shadow:  3px 5px 12px rgba(0,0,0,0.5);
-    
+    box-shadow: 3px 5px 12px rgba(0, 0, 0, 0.5);
 }
 
-.MuiFormGroup-root{
+.AvatarPicker {
+    height: 30%;
+    width: 35%;
+    position: absolute;
+    z-index: 6;
+    margin: auto auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: white;
+    padding: 0 1rem;
+    border-radius: 1rem;
+    box-shadow: 3px 5px 12px rgba(0, 0, 0, 0.5);
+}
+
+.MuiFormGroup-root {
     display: flex;
     align-items: center;
     justify-content: space-around;
     flex-direction: row !important;
 }
 
-input[type="file"]{
-    
+input[type="file"] {
     display: none;
 }
+
 .inputImg {
     border: 1px solid grey;
     display: inline-block;
@@ -37,8 +52,8 @@ input[type="file"]{
     border-radius: 0.2rem;
     margin-bottom: 1rem;
     margin-top: 0.5rem;
-    
 }
+
 .formRegisterHijo {
     height: max-content;
     margin-top: 2rem;
@@ -46,32 +61,33 @@ input[type="file"]{
     overflow-y: scroll;
     padding-right: 2.5rem;
 }
-.formRegisterHijo input{
+
+.formRegisterHijo input {
     width: 100%;
 }
-.formRegisterHijo p{
+
+.formRegisterHijo p {
     margin: 0;
-    
 }
-.RegisterHijo button{
+
+.RegisterHijo button {
     margin: 0;
-    
 }
+
 .MuiRadio-colorSecondary.Mui-checked {
     color: #40AF62 !important;
 }
 
-h1, h4{
+h1, h4 {
     padding-left: 30px;
 }
 
-.RegisterFooter{
+.RegisterFooter {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
 
 /* Tamaño del scroll */
 
@@ -79,7 +95,6 @@ h1, h4{
     width: 8px;
     height: 8px;
 }
-
 
 /* Estilos barra (thumb) de scroll */
 
@@ -98,7 +113,6 @@ h1, h4{
     box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
 }
 
-
 /* Estilos track de scroll */
 
 .formRegisterHijo::-webkit-scrollbar-track {
@@ -106,7 +120,146 @@ h1, h4{
     border-radius: 4px;
 }
 
-.formRegisterHijo::-webkit-scrollbar-track:hover,
-.formRegisterHijo::-webkit-scrollbar-track:active {
+.formRegisterHijo::-webkit-scrollbar-track:hover, .formRegisterHijo::-webkit-scrollbar-track:active {
     background: transparent;
+}
+
+ul.Avatar-list-container {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul.Avatar-list-container li.Default {
+    position: relative;
+    float: left;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 7px;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    cursor: pointer;
+
+}
+
+ul.Avatar-list-container li.First-child {
+    position: relative;
+    float: left;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 7px 7px 7px 0px;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    border: 3px solid rgb(122, 161, 178);
+    cursor: pointer;
+}
+
+ul.Avatar-list-container li.Default:nth-child(4n) {
+    position: relative;
+    float: left;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 7px 0px 7px 7px;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    cursor: pointer;
+}
+
+ul.Avatar-list-container li.Default:nth-child(4n + 1) {
+    position: relative;
+    float: left;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 7px 7px 7px 0px;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    cursor: pointer;
+}
+
+ul.Avatar-list-container li.Default:hover:before, ul.Avatar-list-container li.Default:focus:before, ul.Avatar-list-container li.First-child:hover:before, ul.Avatar-list-container li.First-child:focus:before {
+    opacity: 0.2;
+}
+
+ul.Avatar-list-container li.Default:hover {
+    border: 6px solid rgb(155, 160, 163);
+}
+
+ul.Avatar-list-container li.Default:focus {
+    border: 6px solid rgb(155, 160, 163);
+}
+
+ul.Avatar-list-container li.Default:before, ul.Avatar-list-container li.First-child:before {
+    box-sizing: border-box;
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(122, 161, 178);
+    margin: 0;
+    padding: 0;
+}
+
+ul.Avatar-list-container li.Loading:nth-child(4n) {
+    float: left;
+    box-sizing: border-box;
+    position: relative;
+    padding: 0;
+    margin: 7px 0px 7px 7px;
+    height: 80px;
+    width: 80px;
+    border: 3px solid transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul.Avatar-list-container li.Loading:nth-child(4n + 1) {
+    float: left;
+    box-sizing: border-box;
+    position: relative;
+    padding: 0;
+    margin: 7px 7px 7px 0px;
+    height: 80px;
+    width: 80px;
+    border: 3px solid transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul.Avatar-list-container li.Loading {
+    float: left;
+    box-sizing: border-box;
+    position: relative;
+    padding: 0;
+    margin: 7px;
+    height: 80px;
+    width: 80px;
+    border: 3px solid transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul.Avatar-list-container li.Loading:before {
+    content: "";
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    border-radius: 50%;
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    border: 3px solid rgb(122, 161, 178);
+    border-bottom: 3px solid black;
+    animation: loading 1s linear 1;
 }
