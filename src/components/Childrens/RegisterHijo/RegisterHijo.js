@@ -132,26 +132,33 @@ class RegisterHijo extends React.Component {
     render() {
         return (
             <div className="RegisterHijo">
-                <h2>Complete datos del hijo a registrar</h2>
+                <h1>Nuevo hijo</h1>
+                <h4>Complete los siguientes datos</h4>
                 <form className="formRegisterHijo" onSubmit={this.handleSubmit}>
-                    <p>Nombre</p>
-                    <input required onChange={(event) => this.nameInputHandler(event)} />
-                    <p>Usuario</p>
-                    <input required onChange={(event) => this.userInputHandler(event)} />
-                    <p>Edad</p>
-                    <input required type="number" onChange={(event) => this.ageInputHandler(event)} />
+                    
+                    <input placeholder="Nombre" required onChange={(event) => this.nameInputHandler(event)} />
+                   
+                    <input placeholder="Usuario" required onChange={(event) => this.userInputHandler(event)} />
+                    
+                    <input placeholder="Edad" required type="number" onChange={(event) => this.ageInputHandler(event)} />
                     <p>Es celiaco?</p>
-                    <RadioGroup onChange={(event) => this.celiacRadioHandler(event)}>
-                        <FormControlLabel value="si" control={<Radio />} label="Si" />
-                        <FormControlLabel value="no" control={<Radio />} label="No" />
-                    </RadioGroup>
+                    <div className="RadioGroup">
+                        <RadioGroup color="blue" onChange={(event) => this.celiacRadioHandler(event)}>
+                            <FormControlLabel  value="si" control={<Radio />} label="Si" />
+                            <FormControlLabel value="no" control={<Radio />} label="No" />
+                        </RadioGroup>
+                    </div>
+                    
                     <p>Es diabetico?</p>
                     <RadioGroup onChange={(event) => this.diabeticRadioHandler(event)}>
                         <FormControlLabel value="si" control={<Radio />} label="Si" />
                         <FormControlLabel value="no" control={<Radio />} label="No" />
                     </RadioGroup>
                     <p>Avatar</p>
-                    <input type="file" ref={this.fileInput} onChange={(event) => this.fileInputHandler(event)} />
+                    <label className="inputImg">
+                        <input className="inputImg" type="file" ref={this.fileInput} onChange={(event) => this.fileInputHandler(event)} />
+                        Subir imagen
+                    </label>
                     {/* <button type="submit">REGISTRAR</button> */}
                 </form>
                 {
@@ -160,7 +167,9 @@ class RegisterHijo extends React.Component {
                         <span style={{ color: "red" }}>Error:{this.state.errorMessage}</span>
                     </div>
                 }
-                <button onClick={this.handleSubmit}>REGISTRAR</button>
+                <div className="RegisterFooter">
+                    <button onClick={this.handleSubmit}>REGISTRAR</button>    
+                </div>
             </div>
         );
     }
