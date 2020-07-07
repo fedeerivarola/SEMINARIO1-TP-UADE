@@ -83,6 +83,7 @@
     padding-bottom: 2rem;
     margin-top: 1rem;
     border-radius: 12px;
+
 }
 
 .SaldoListItemHijos {
@@ -93,6 +94,8 @@
     box-shadow: 0px 3px 6px #00000029;
     opacity: 1;
     padding-bottom: 1rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .ItemHijo{
@@ -120,3 +123,37 @@
     letter-spacing: 0px;
     color: #2A2A00;   
 }
+
+  /* Tamaño del scroll */
+  .SaldoListItemHijos::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+   /* Estilos barra (thumb) de scroll */
+  .SaldoListItemHijos::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+  }
+  
+  .SaldoListItemHijos::-webkit-scrollbar-thumb:active {
+    background-color: #999999;
+    border-radius: 4px;
+  }
+  
+  .SaldoListItemHijos::-webkit-scrollbar-thumb:hover {
+    background: #b3b3b3;
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+  }
+  
+   /* Estilos track de scroll */
+  .SaldoListItemHijos::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 4px;
+  }
+  
+  .SaldoListItemHijos::-webkit-scrollbar-track:hover, 
+  .SaldoListItemHijos::-webkit-scrollbar-track:active {
+    background: transparent;
+  }
+  
