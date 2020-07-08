@@ -66,10 +66,11 @@ class ListHistory extends React.Component {
         let hijos = [];
         hijos = this.state.hijos;
         let img;
+        console.log(hijos)
 
         for (let index = 0; index < hijos.length; index++) {
-            if (e.uid === hijos[index].uid) {
-                img = hijos[index].img;
+            if (e.uid === hijos[index].user) {
+                img = hijos[index].avatar;
             } else if (e.uid === this.state.user.userEmail) {
                 img = this.state.profile;
             }
