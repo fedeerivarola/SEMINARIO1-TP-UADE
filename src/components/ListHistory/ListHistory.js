@@ -90,7 +90,7 @@ class ListHistory extends React.Component {
                     </ListItemAvatar>
                     <ListItemText id={'name-' + labelId} primary={e.name} />
                     <ListItemText className="ItemTime" id={'time-' + labelId} primary={`${moment(fecha).format('DD/MM/YYYY')}`} />
-                    <ListItemText className="ItemTime" id={'time-2-' + labelId} primary={`Hace ${moment(fecha).fromNow(true)}`} />
+                    <ListItemText className="ItemTime" id={'time-2-' + labelId} primary={`Hace ${moment(fecha).fromNow(true).replace('hours','horas')}`} />
                     <ListItemText className="RegistroDesc" id={'desc-' + labelId} primary={e.desc} />
                     {e.gasto === '0' ? <ListItemText className="saldoPositivo" id={'saldo-' + labelId} primary={`+ $${e.saldo}`} /> : <ListItemText className="saldoNegativo" id={'saldo-' + labelId} primary={`- $${e.saldo}`} />}
                 </ListItem>
