@@ -82,7 +82,7 @@ class ListHistory extends React.Component {
         if ((this.state.selectedOption === e.tipo) || (this.state.selectedOption === "todo")) {
             return (
                 <ListItem key={e} button className="Registro">
-                    <ListItemAvatar>
+                    <ListItemAvatar className="w-24">
                         <Avatar
                             alt={`Avatar n°${e + 1}`}
                             src={img}
@@ -91,7 +91,7 @@ class ListHistory extends React.Component {
                     <ListItemText id={'name-' + labelId} primary={e.name} />
                     <ListItemText className="ItemTime" id={'time-' + labelId} primary={`${moment(fecha).format('DD/MM/YYYY')}`} />
                     <ListItemText className="ItemTime" id={'time-2-' + labelId} primary={`Hace ${moment(fecha).fromNow(true)}`} />
-                    <ListItemText id={'desc-' + labelId} primary={e.desc} />
+                    <ListItemText className="RegistroDesc" id={'desc-' + labelId} primary={e.desc} />
                     {e.gasto === '0' ? <ListItemText className="saldoPositivo" id={'saldo-' + labelId} primary={`+ $${e.saldo}`} /> : <ListItemText className="saldoNegativo" id={'saldo-' + labelId} primary={`- $${e.saldo}`} />}
                 </ListItem>
             );
