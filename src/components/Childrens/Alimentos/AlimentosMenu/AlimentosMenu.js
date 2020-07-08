@@ -27,7 +27,7 @@ class AlimentosMenu extends React.Component {
                     querySnapshot.forEach(doc => {
                         alimentos.push(doc.data());
                     })
-                    this.setState({alimentos: alimentos});
+                    this.setState({ alimentos: alimentos });
                 }
             });
 
@@ -85,9 +85,11 @@ class AlimentosMenu extends React.Component {
                         <Card key={value.desc} className="CardAlimento">
                             <img src={value.img} alt={value.desc}></img>
                             {value.desc}
-                            <CardActionArea id={`action-${alimId}`} className="BotonCardAlimento" onClick={() => { this.allowMorfi(value, this.state.permisos.includes(value.desc)) }}>
-                                {this.state.permisos.includes(value.desc) ? 'Quitar Permiso' : 'Permitir'}
-                            </CardActionArea>
+                            <div className="ActionArea">
+                                <CardActionArea id={`action-${alimId}`} className="BotonCardAlimento" onClick={() => { this.allowMorfi(value, this.state.permisos.includes(value.desc)) }}>
+                                    {this.state.permisos.includes(value.desc) ? 'Quitar Permiso' : 'Permitir'}
+                                </CardActionArea>
+                            </div>
                         </Card>
                     ))}
                 </Grid>
